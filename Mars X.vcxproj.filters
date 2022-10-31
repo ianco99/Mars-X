@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SRC">
+      <UniqueIdentifier>{5a447657-0c2c-4ca2-a742-f29357f821b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SRC\Main">
+      <UniqueIdentifier>{aa06b80b-66c2-43b1-856e-5cd1209fd93b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SRC\CoreLoop">
+      <UniqueIdentifier>{4cc0bbf0-29d6-455b-a18e-a55608c8a1e1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SRC\Main\Main.cpp">
+      <Filter>SRC\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\CoreLoop\CoreLoop.cpp">
+      <Filter>SRC\CoreLoop</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SRC\CoreLoop\CoreLoop.h">
+      <Filter>SRC\CoreLoop</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
