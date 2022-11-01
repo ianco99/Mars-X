@@ -10,35 +10,49 @@ namespace OkamiIndustries
     const int screenWidth = 1920;
     const int screenHeight = 1080;
 
+    bool QuitGame = true;
+
     int SelectScene = 0;
-    int SetScene = 1;
+    int SetScene = 0;
+    Rectangle Mouse;
+    Vector2 MouseOrigin = { 0,0 };
 
 	void CoreLoop()
 	{
 
         InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V0.1");
+        SetExitKey(KEY_NULL);
+        HideCursor();
         InitExplorer();
         InitObstacles();
         InitMenu();
+        InitMouse();
                
-        while (!WindowShouldClose())
+        while (!WindowShouldClose() && QuitGame)
         {
+            UpdateMouse();
 
             switch (SetScene)
             {
                 case 0:
                 {
+
                     MenuLoop();
                     break;
                 }
 
                 case 1:
                 {
+                    if (IsKeyPressed(KEY_ESCAPE))
+                    {
+                        SetScene = 0;
+                    }
                     MoveExplorer();
                     MoveObstacles();
                     break;
                 }
             default:
+                SetScene = 1;
                 break;
             }
 
@@ -61,9 +75,11 @@ namespace OkamiIndustries
                     break;
                 }
             default:
+                SetScene = 1;
                 break;
             }
 
+            DrawMouse();
             DrawText("V0.1", 30, 30, 20, RAYWHITE);
 
             EndDrawing();
@@ -87,5 +103,24 @@ namespace OkamiIndustries
         {
             return false;
         }
+    }
+
+    static void InitMouse()
+    {
+        Mouse.x = GetMousePosition().x;
+        Mouse.y = GetMousePosition().y;
+        Mouse.width = 5;
+        Mouse.height = 5;
+    }
+
+    static void UpdateMouse()
+    {
+        Mouse.x = GetMousePosition().x;
+        Mouse.y = GetMousePosition().y;
+    }
+
+    static void DrawMouse()
+    {
+        DrawRectanglePro(Mouse, MouseOrigin, 0, YELLOW);
     }
 }

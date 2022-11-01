@@ -24,7 +24,6 @@ namespace OkamiIndustries
 		}
 	}
 
-
 	void MoveObstacles()
 	{
 		for (int i = 0; i < maxObstacles; i++)

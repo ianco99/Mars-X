@@ -24,6 +24,7 @@ namespace OkamiIndustries
 	void MoveExplorer()
 	{
 		explorer.y = explorer.y + gravity * GetFrameTime();
+
 		if (explorer.y > static_cast <float>((GetScreenHeight() / 4) * 3))
 		{
 			explorer.y = static_cast <float>((GetScreenHeight() / 4) * 3);
