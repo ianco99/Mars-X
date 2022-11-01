@@ -16,6 +16,9 @@
     <Filter Include="SRC\Obstacles">
       <UniqueIdentifier>{d881a9a0-71a9-4a28-94c0-71a05b50d047}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SRC\MenuLoop">
+      <UniqueIdentifier>{7ae0e303-1020-4902-82b2-2a55b5274657}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SRC\Main\Main.cpp">
@@ -30,6 +33,9 @@
     <ClCompile Include="SRC\Obstacles\Obstacles.cpp">
       <Filter>SRC\Obstacles</Filter>
     </ClCompile>
+    <ClCompile Include="SRC\MenuLoop\MenuLoop.cpp">
+      <Filter>SRC\MenuLoop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRC\CoreLoop\CoreLoop.h">
@@ -40,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="SRC\Obstacles\Obstacles.h">
       <Filter>SRC\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\MenuLoop\MenuLoop.h">
+      <Filter>SRC\MenuLoop</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

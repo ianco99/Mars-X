@@ -22,11 +22,13 @@
     <ClCompile Include="SRC\CoreLoop\CoreLoop.cpp" />
     <ClCompile Include="SRC\Explorer\Explorer.cpp" />
     <ClCompile Include="SRC\Main\Main.cpp" />
+    <ClCompile Include="SRC\MenuLoop\MenuLoop.cpp" />
     <ClCompile Include="SRC\Obstacles\Obstacles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRC\CoreLoop\CoreLoop.h" />
     <ClInclude Include="SRC\Explorer\Explorer.h" />
+    <ClInclude Include="SRC\MenuLoop\MenuLoop.h" />
     <ClInclude Include="SRC\Obstacles\Obstacles.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
