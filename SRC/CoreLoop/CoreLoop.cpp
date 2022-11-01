@@ -28,6 +28,8 @@ namespace OkamiIndustries
             DrawExplorer();
             DrawObstacles();
 
+            DrawText("V0.1", 30, 30, 20, RAYWHITE);
+
             EndDrawing();
 
         }
