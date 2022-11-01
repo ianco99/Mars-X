@@ -3,6 +3,7 @@
 #include "../Explorer/Explorer.h"
 #include "../Obstacles/Obstacles.h"
 #include "../MenuLoop/MenuLoop.h"
+#include "../GameLoop/GameLoop.h"
 
 
 namespace OkamiIndustries
@@ -12,13 +13,15 @@ namespace OkamiIndustries
 
     bool QuitGame = true;
 
+    Texture2D BackgroundGame;
+
     int SelectScene = 0;
     int SetScene = 0;
     Rectangle Mouse;
     Vector2 MouseOrigin = { 0,0 };
 
-	void CoreLoop()
-	{
+    void CoreLoop()
+    {
 
         InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V0.1");
         SetExitKey(KEY_NULL);
@@ -27,30 +30,26 @@ namespace OkamiIndustries
         InitObstacles();
         InitMenu();
         InitMouse();
-               
+        InitGame();
+
         while (!WindowShouldClose() && QuitGame)
         {
             UpdateMouse();
 
             switch (SetScene)
             {
-                case 0:
-                {
+            case 0:
+            {
 
-                    MenuLoop();
-                    break;
-                }
+                MenuLoop();
+                break;
+            }
 
-                case 1:
-                {
-                    if (IsKeyPressed(KEY_ESCAPE))
-                    {
-                        SetScene = 0;
-                    }
-                    MoveExplorer();
-                    MoveObstacles();
-                    break;
-                }
+            case 1:
+            {
+                GameLoop();
+                break;
+            }
             default:
                 SetScene = 1;
                 break;
@@ -62,18 +61,17 @@ namespace OkamiIndustries
 
             switch (SetScene)
             {
-                case 0:
-                {
-                    DrawMenu();
-                    break;
-                }
+            case 0:
+            {
+                DrawMenu();
+                break;
+            }
 
-                case 1:
-                {
-                    DrawExplorer();
-                    DrawObstacles();
-                    break;
-                }
+            case 1:
+            {
+                DrawGame();
+                break;
+            }
             default:
                 SetScene = 1;
                 break;
@@ -84,9 +82,9 @@ namespace OkamiIndustries
 
             EndDrawing();
 
-        }
-            
-        CloseWindow(); 
+        };
+
+        CloseWindow();
     }
 
 	
@@ -123,4 +121,5 @@ namespace OkamiIndustries
     {
         DrawRectanglePro(Mouse, MouseOrigin, 0, YELLOW);
     }
+
 }

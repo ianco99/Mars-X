@@ -8,4 +8,5 @@ namespace OkamiIndustries
 	static void InitMouse();
 	static void UpdateMouse();
 	static void DrawMouse();
+	static void InitAssets();
 }
