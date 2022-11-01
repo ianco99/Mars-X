@@ -1,6 +1,6 @@
 #include "../CoreLoop/CoreLoop.h"
 
-void main()
+int main()
 {
 	OkamiIndustries::CoreLoop();
 }
