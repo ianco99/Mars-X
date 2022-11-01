@@ -11,7 +11,7 @@ namespace OkamiIndustries
     const int screenHeight = 1080;
 
     int SelectScene = 0;
-    int SetScene = 0;
+    int SetScene = 1;
 
 	void CoreLoop()
 	{
@@ -74,4 +74,18 @@ namespace OkamiIndustries
     }
 
 	
+    bool CheckCollision(Rectangle rec1, Rectangle rec2)
+    {
+        if (rec1.x < rec2.x + rec2.width &&
+            rec1.x + rec1.width > rec2.x &&
+            rec1.y < rec2.y + rec2.height &&
+            rec1.height + rec1.y > rec2.y)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

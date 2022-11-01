@@ -1,5 +1,6 @@
 #include "Obstacles.h"
 #include "raylib.h"
+#include "../CoreLoop/CoreLoop.h"
 
 namespace OkamiIndustries
 {
@@ -7,7 +8,9 @@ namespace OkamiIndustries
 	int speed = -300;
 	Rectangle Obstacles[maxObstacles];
 	Vector2 ObstaclesOrigin[maxObstacles]; 
-	int ObstaclesRotation = 0;
+	float ObstaclesRotation = 0;
+
+	extern Rectangle explorer;
 
 	void InitObstacles()
 	{
@@ -39,7 +42,14 @@ namespace OkamiIndustries
 	{
 		for (int i = 0; i < maxObstacles; i++)
 		{
-			DrawRectanglePro(Obstacles[i], ObstaclesOrigin[i], static_cast <float>(ObstaclesRotation), RAYWHITE);
+			if (CheckCollision(Obstacles[i], explorer))
+			{
+				DrawRectanglePro(Obstacles[i], ObstaclesOrigin[i], ObstaclesRotation, RED);
+			}
+			else
+			{
+				DrawRectanglePro(Obstacles[i], ObstaclesOrigin[i], ObstaclesRotation, RAYWHITE);
+			}
 		}
 	}
 

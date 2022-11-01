@@ -1,12 +1,16 @@
 #include "Explorer.h"
 #include "raylib.h"
+#include "../CoreLoop/CoreLoop.h"
 
 namespace OkamiIndustries
 {
 	float gravity = 500;
 	Rectangle explorer;
 	Vector2 explorerOrigin = { explorer.width / 2, explorer.height / 2 };
-	int explorerRotation = 0;
+	float explorerRotation = 0;
+
+	extern const int maxObstacles = 3;
+	extern Rectangle Obstacles[maxObstacles];
 
 	void InitExplorer()
 	{
@@ -38,9 +42,20 @@ namespace OkamiIndustries
 		
 	}
 
-
 	void DrawExplorer()
 	{
-		DrawRectanglePro(explorer, explorerOrigin, static_cast <float>(explorerRotation), RAYWHITE);
+		for (int i = 0; i < maxObstacles; i++)
+		{
+			if (CheckCollision(Obstacles[i], explorer))
+			{
+				DrawRectanglePro(explorer, explorerOrigin, explorerRotation, RED);
+				break;
+			}
+			else
+			{
+				DrawRectanglePro(explorer, explorerOrigin, explorerRotation, RAYWHITE);
+			}
+
+		}
 	}
 }
