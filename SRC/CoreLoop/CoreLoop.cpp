@@ -14,6 +14,10 @@ namespace OkamiIndustries
     bool QuitGame = true;
 
     Texture2D BackgroundGame;
+    Texture2D Parallax1Game;
+    Texture2D Parallax2Game;
+    Texture2D Parallax3Game;
+    Texture2D FloorGame;
 
     int SelectScene = 0;
     int SetScene = 0;
