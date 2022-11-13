@@ -29,7 +29,7 @@ namespace OkamiIndustries
     void CoreLoop()
     {
 
-        InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V0.2");
+        InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V0.3");
         SetExitKey(KEY_NULL);
         HideCursor();
         InitExplorer();
@@ -86,7 +86,7 @@ namespace OkamiIndustries
             }
 
             DrawMouse();
-            DrawText("V0.2", 30, 30, 20, RAYWHITE);
+            DrawText("V0.3", 30, 30, 20, RAYWHITE);
 
             EndDrawing();
 

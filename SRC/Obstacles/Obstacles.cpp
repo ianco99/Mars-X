@@ -11,6 +11,7 @@ namespace OkamiIndustries
 	float ObstaclesRotation = 0;
 
 	extern Rectangle explorer;
+	extern int score;
 
 	void InitObstacles()
 	{
@@ -32,9 +33,9 @@ namespace OkamiIndustries
 			if (Obstacles[i].x < 0 - Obstacles[i].width)
 			{
 				Obstacles[i].x = static_cast <float>(GetScreenWidth());
+				score++;
 			}
 		}
-
 	}
 
 	void DrawObstacles()

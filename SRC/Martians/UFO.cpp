@@ -46,7 +46,7 @@ namespace OkamiIndustries
                 {
                     if (CheckCollisionCircleRec(bullet[j].Position, static_cast <float>(bullet[j].Radius), UFOs[i]))
                     {
-                        UFOs[i].x = -1000;
+                        UFOs[i].x = -500 * maxUFOs - 1;
                         score++;
                     }
                 }

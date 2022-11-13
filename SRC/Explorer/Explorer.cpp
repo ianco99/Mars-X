@@ -9,6 +9,8 @@ namespace OkamiIndustries
 	Vector2 explorerOrigin = { explorer.width / 2, explorer.height / 2 };
 	float explorerRotation = 0;
 
+	bool isLive = true;
+
 	extern const int maxObstacles = 3;
 	extern Rectangle Obstacles[maxObstacles];
 
@@ -50,6 +52,7 @@ namespace OkamiIndustries
 			if (CheckCollision(Obstacles[i], explorer))
 			{
 				DrawRectanglePro(explorer, explorerOrigin, explorerRotation, RED);
+				isLive = false;
 				break;
 			}
 			else

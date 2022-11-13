@@ -26,18 +26,24 @@ namespace OkamiIndustries
 	Vector2 Floorpos2 = { 1920,0 };
 
 	int score = 0;
+	extern bool isLive;
 
 	void GameLoop()
 	{
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
 			SetScene = 0;
+			isLive = true;
 		}
-		updateBackground();
-		MoveExplorer();
-		ShootExplorer();
-		MoveObstacles();
-		MoveUFO();
+
+		if (isLive)
+		{
+			updateBackground();
+			MoveExplorer();
+			ShootExplorer();
+			MoveObstacles();
+			MoveUFO();
+		}
 	}
 
 	void DrawGame()
@@ -51,11 +57,19 @@ namespace OkamiIndustries
 		DrawTextureEx(Parallax3Game, Parallax3pos2, 0, 1, WHITE);
 		DrawTextureEx(FloorGame, Floorpos, 0, 1, WHITE);
 		DrawTextureEx(FloorGame, Floorpos2, 0, 1, WHITE);
+		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 20, WHITE);
 
 		DrawExplorer();
 		DrawBullets();
 		DrawObstacles();
 		DrawUFO();
+
+		if (!isLive)
+		{
+			DrawText(TextFormat("Score: %05i", score * 100), GetScreenWidth() / 4, GetScreenHeight() / 2, 150, RED);
+			DrawText("ESC to retun the menu", GetScreenWidth() / 3, GetScreenHeight() / 2 + 300, 50, WHITE);
+		}
+
 	}
 
 	void InitGame()
