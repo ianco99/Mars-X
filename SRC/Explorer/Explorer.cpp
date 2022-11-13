@@ -30,7 +30,7 @@ namespace OkamiIndustries
 			explorer.y = static_cast <float>((GetScreenHeight() / 4) * 3);
 		}
 
-		if (IsKeyPressed(' '))
+		if (IsKeyPressed(KEY_SPACE))
 		{
 			gravity = -500;
 			
@@ -59,4 +59,5 @@ namespace OkamiIndustries
 
 		}
 	}
+
 }

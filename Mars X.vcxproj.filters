@@ -22,6 +22,12 @@
     <Filter Include="SRC\GameLoop">
       <UniqueIdentifier>{933e4f91-1378-48c2-8828-d25c84ff6636}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SRC\Martians">
+      <UniqueIdentifier>{1b710f5c-a2d5-46cb-815f-c245ce1675b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SRC\Explorer\Bullets">
+      <UniqueIdentifier>{a771954f-d50b-4970-b4dd-532587e27df5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SRC\Main\Main.cpp">
@@ -42,6 +48,12 @@
     <ClCompile Include="SRC\GameLoop\GameLoop.cpp">
       <Filter>SRC\GameLoop</Filter>
     </ClCompile>
+    <ClCompile Include="SRC\Martians\UFO.cpp">
+      <Filter>SRC\Martians</Filter>
+    </ClCompile>
+    <ClCompile Include="SRC\Explorer\Bullets\Bullets.cpp">
+      <Filter>SRC\Explorer\Bullets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRC\CoreLoop\CoreLoop.h">
@@ -58,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="SRC\GameLoop\GameLoop.h">
       <Filter>SRC\GameLoop</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\Martians\UFO.h">
+      <Filter>SRC\Martians</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\Explorer\Bullets\Bullets.h">
+      <Filter>SRC\Explorer\Bullets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

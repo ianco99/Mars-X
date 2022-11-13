@@ -4,6 +4,7 @@ namespace OkamiIndustries
 {
 	void InitExplorer();
 	void MoveExplorer(); 
-	void DrawExplorer();
+	void DrawExplorer(); 
+
 
 }

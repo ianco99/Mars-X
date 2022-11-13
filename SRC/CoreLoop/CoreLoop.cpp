@@ -4,6 +4,8 @@
 #include "../Obstacles/Obstacles.h"
 #include "../MenuLoop/MenuLoop.h"
 #include "../GameLoop/GameLoop.h"
+#include "../Martians/UFO.h"
+#include "../Explorer/Bullets/Bullets.h"
 
 
 namespace OkamiIndustries
@@ -32,6 +34,8 @@ namespace OkamiIndustries
         HideCursor();
         InitExplorer();
         InitObstacles();
+        initBullets();
+        initUFO();
         InitMenu();
         InitMouse();
         InitGame();
