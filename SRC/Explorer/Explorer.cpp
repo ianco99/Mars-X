@@ -34,8 +34,10 @@ namespace OkamiIndustries
 
 		if (IsKeyPressed(KEY_SPACE))
 		{
-			gravity = -500;
-			
+			if (explorer.y == static_cast <float>((GetScreenHeight() / 4) * 3))
+			{
+				gravity = -500;
+			}
 		}
 		else
 		{

@@ -32,8 +32,13 @@ namespace OkamiIndustries
 	{
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
+			InitExplorer();
+			InitObstacles();
+			initBullets();
+			initUFO();
 			SetScene = 0;
 			isLive = true;
+			score = 0;
 		}
 
 		if (isLive)
