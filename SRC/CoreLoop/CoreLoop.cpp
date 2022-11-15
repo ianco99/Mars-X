@@ -48,7 +48,6 @@ namespace OkamiIndustries
             {
             case 0:
             {
-
                 MenuLoop();
                 break;
             }
@@ -61,6 +60,7 @@ namespace OkamiIndustries
             case 2:
             {
                 GameLoop(false);
+                break;
             }
             default:
                 SetScene = 1;

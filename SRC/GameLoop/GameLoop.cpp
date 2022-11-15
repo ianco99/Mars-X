@@ -31,11 +31,6 @@ namespace OkamiIndustries
 
 	void GameLoop(bool singlePlayer)
 	{
-		if (singlePlayer)
-		{
-
-		}
-
 		if (!isLive1)
 		{
 			InitExplorer1();
@@ -44,6 +39,14 @@ namespace OkamiIndustries
 			initUFO();
 			isLive1 = true;
 			score = 0;
+			if (singlePlayer)
+			{
+				score = 4;
+			}
+			else
+			{
+				score = 5;
+			}
 		}
 
 		if (isLive1)
@@ -60,6 +63,8 @@ namespace OkamiIndustries
 			SetScene = 0;
 			isLive1 = false;
 		}
+
+		
 
 	}
 
