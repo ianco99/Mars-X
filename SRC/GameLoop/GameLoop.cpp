@@ -30,13 +30,12 @@ namespace OkamiIndustries
 
 	void GameLoop()
 	{
-		if (IsKeyPressed(KEY_ESCAPE))
+		if (!isLive)
 		{
 			InitExplorer();
 			InitObstacles();
 			initBullets();
 			initUFO();
-			SetScene = 0;
 			isLive = true;
 			score = 0;
 		}
@@ -49,6 +48,13 @@ namespace OkamiIndustries
 			MoveObstacles();
 			MoveUFO();
 		}
+
+		if (IsKeyPressed(KEY_ESCAPE))
+		{
+			SetScene = 0;
+			isLive = false;
+		}
+
 	}
 
 	void DrawGame()
@@ -84,19 +90,19 @@ namespace OkamiIndustries
 		Parallax2Game = LoadTexture("assets/parallax 2.png");
 		Parallax3Game = LoadTexture("assets/parallax 3.png");
 		FloorGame = LoadTexture("assets/Floor.png");
-		
+
 	}
 
 	static void updateBackground()
 	{
-		Parallax1pos.x -= 200* GetFrameTime();
-		Parallax1pos2.x -= 200* GetFrameTime();
-		Parallax2pos.x -= 400* GetFrameTime();
-		Parallax2pos2.x -= 400* GetFrameTime();
-		Parallax3pos.x -= 600* GetFrameTime();
-		Parallax3pos2.x -= 600* GetFrameTime();
-		Floorpos.x -= 800* GetFrameTime();
-		Floorpos2.x -= 800* GetFrameTime();
+		Parallax1pos.x -= 200 * GetFrameTime();
+		Parallax1pos2.x -= 200 * GetFrameTime();
+		Parallax2pos.x -= 400 * GetFrameTime();
+		Parallax2pos2.x -= 400 * GetFrameTime();
+		Parallax3pos.x -= 600 * GetFrameTime();
+		Parallax3pos2.x -= 600 * GetFrameTime();
+		Floorpos.x -= 800 * GetFrameTime();
+		Floorpos2.x -= 800 * GetFrameTime();
 
 		if (Parallax1pos.x < -1920)
 		{

@@ -9,7 +9,7 @@ namespace OkamiIndustries
 	Vector2 explorerOrigin = { explorer.width / 2, explorer.height / 2 };
 	float explorerRotation = 0;
 
-	bool isLive = true;
+	bool isLive = false;
 
 	extern const int maxObstacles = 3;
 	extern Rectangle Obstacles[maxObstacles];
@@ -18,6 +18,8 @@ namespace OkamiIndustries
 	{
 		explorer.width = 50;
 		explorer.height = 50;
+
+		gravity = 0;
 
 		explorer.x = static_cast <float>(GetScreenWidth() / 4);
 		explorer.y = static_cast <float>((GetScreenHeight() / 4) * 3);
