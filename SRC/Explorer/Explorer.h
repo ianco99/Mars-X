@@ -1,10 +1,18 @@
 #pragma once
-
+#include "raylib.h"
 namespace OkamiIndustries
 {
-	void InitExplorer();
+	struct Explorer
+	{
+		Rectangle body;
+		Vector2 bodyOrigin;
+
+		float rotation;
+		float acceleration;
+	};
+
+	void InitExplorer1();
+	void InitExplorer2();
 	void MoveExplorer(); 
 	void DrawExplorer(); 
-
-
 }

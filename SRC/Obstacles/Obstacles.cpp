@@ -1,6 +1,7 @@
 #include "Obstacles.h"
 #include "raylib.h"
 #include "../CoreLoop/CoreLoop.h"
+#include "../Explorer/Explorer.h"
 
 namespace OkamiIndustries
 {
@@ -10,7 +11,7 @@ namespace OkamiIndustries
 	Vector2 ObstaclesOrigin[maxObstacles]; 
 	float ObstaclesRotation = 0;
 
-	extern Rectangle explorer;
+	extern Explorer explorer1;
 	extern int score;
 
 	void InitObstacles()
@@ -42,7 +43,7 @@ namespace OkamiIndustries
 	{
 		for (int i = 0; i < maxObstacles; i++)
 		{
-			if (CheckCollision(Obstacles[i], explorer))
+			if (CheckCollision(Obstacles[i], explorer1.body))
 			{
 				DrawRectanglePro(Obstacles[i], ObstaclesOrigin[i], ObstaclesRotation, RED);
 			}

@@ -1,11 +1,12 @@
+#include <cmath>
 #include "Bullets.h"
 #include "raylib.h"
-#include <cmath>
 #include "../SRC/CoreLoop/CoreLoop.h"
+#include "../Explorer.h"
 
 namespace OkamiIndustries
 {
-	extern Rectangle explorer;
+	extern Explorer explorer1;
 
 	const int maxAmmo = 100;
 	Circle bullet[maxAmmo];
@@ -31,8 +32,8 @@ namespace OkamiIndustries
 	{
 		Vector2 Dif = { 0,0 };
 		Vector2 normalDir = { 0,0 };
-		Dif.x = explorer.x - static_cast <float>(GetScreenWidth() / 4);
-		Dif.y = explorer.y + 1000;
+		Dif.x = explorer1.body.x - static_cast <float>(GetScreenWidth() / 4);
+		Dif.y = explorer1.body.y + 1000;
 
 		float Module = static_cast <float>(sqrt(pow(Dif.x, 2) + pow(Dif.y, 2)));
 
@@ -45,8 +46,8 @@ namespace OkamiIndustries
 			{
 				trayectory[currentBullet] = normalDir;
 				isBulletTravelling[currentBullet] = true;
-				bullet[currentBullet].Position.x = explorer.x + explorer.width / 2;
-				bullet[currentBullet].Position.y = explorer.y;
+				bullet[currentBullet].Position.x = explorer1.body.x + explorer1.body.width / 2;
+				bullet[currentBullet].Position.y = explorer1.body.y;
 				currentBullet++;
 				timer = 0;
 				if (currentBullet >= maxAmmo)

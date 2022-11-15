@@ -26,21 +26,27 @@ namespace OkamiIndustries
 	Vector2 Floorpos2 = { 1920,0 };
 
 	int score = 0;
-	extern bool isLive;
+	extern bool isLive1;
+	extern bool isLive2;
 
 	void GameLoop(bool singlePlayer)
 	{
-		if (!isLive)
+		if (singlePlayer)
 		{
-			InitExplorer();
+
+		}
+
+		if (!isLive1)
+		{
+			InitExplorer1();
 			InitObstacles();
 			initBullets();
 			initUFO();
-			isLive = true;
+			isLive1 = true;
 			score = 0;
 		}
 
-		if (isLive)
+		if (isLive1)
 		{
 			updateBackground();
 			MoveExplorer();
@@ -52,7 +58,7 @@ namespace OkamiIndustries
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
 			SetScene = 0;
-			isLive = false;
+			isLive1 = false;
 		}
 
 	}
@@ -75,7 +81,7 @@ namespace OkamiIndustries
 		DrawObstacles();
 		DrawUFO();
 
-		if (!isLive)
+		if (!isLive1)
 		{
 			DrawText(TextFormat("Score: %05i", score * 100), GetScreenWidth() / 4, GetScreenHeight() / 2, 150, RED);
 			DrawText("ESC to retun the menu", GetScreenWidth() / 3, GetScreenHeight() / 2 + 300, 50, WHITE);
