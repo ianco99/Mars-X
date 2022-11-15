@@ -28,7 +28,7 @@ namespace OkamiIndustries
 	int score = 0;
 	extern bool isLive;
 
-	void GameLoop()
+	void GameLoop(bool singlePlayer)
 	{
 		if (!isLive)
 		{

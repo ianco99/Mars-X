@@ -55,8 +55,12 @@ namespace OkamiIndustries
 
             case 1:
             {
-                GameLoop();
+                GameLoop(true);
                 break;
+            }
+            case 2:
+            {
+                GameLoop(false);
             }
             default:
                 SetScene = 1;

@@ -4,7 +4,7 @@
 namespace OkamiIndustries
 {
 
-	void GameLoop();
+	void GameLoop(bool singlePlayer);
 	void DrawGame();
 	void InitGame();
 	static void updateBackground();
