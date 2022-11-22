@@ -93,7 +93,7 @@ namespace OkamiIndustries
 	{
 		for (int i = 0; i < maxObstacles; i++)
 		{
-			if (CheckCollision(Obstacles[i], explorer1.body))
+			if (CheckCollision(Obstacles[i], explorer1.body) && isLive1)
 			{
 				DrawRectanglePro(explorer1.body, explorer1.bodyOrigin, explorerRotation, RED);
 				isLive1 = false;
@@ -111,7 +111,7 @@ namespace OkamiIndustries
 	{
 		for (int i = 0; i < maxObstacles; i++)
 		{
-			if (CheckCollision(Obstacles[i], explorer2.body))
+			if (CheckCollision(Obstacles[i], explorer2.body) && isLive2)
 			{
 				DrawRectanglePro(explorer2.body, explorer2.bodyOrigin, explorerRotation, RED);
 				isLive2 = false;

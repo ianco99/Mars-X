@@ -29,10 +29,13 @@ namespace OkamiIndustries
 	extern bool isLive1;
 	extern bool isLive2;
 
+	bool isPlaying = false;
+
 	void GameLoop(bool singlePlayer)
 	{
-		if (!isLive1)
+		if (!isPlaying)	//Inits
 		{
+			isPlaying = true;
 			InitExplorer1();
 			InitObstacles();
 			InitBullets();
@@ -40,41 +43,45 @@ namespace OkamiIndustries
 			InitBackground();
 			isLive1 = true;
 			score = 0;
-			if (singlePlayer)
-			{
-				score = 4;
-			}
-			else
+
+			if (!singlePlayer)
 			{
 				isLive2 = true;
 				InitExplorer2();
-				score = 5;
+				InitBullets2();
 			}
 		}
 
-
-		if (isLive1)
+		if (isPlaying)
 		{
 			updateBackground();
-			MoveExplorer();
-			ShootExplorer();
 			MoveObstacles();
 			MoveUFO();
-		}
-		if (!singlePlayer)
-		{
-			if (isLive2)
+			if (isLive1)
 			{
-				MoveExplorer2();
+				MoveExplorer();
+				ShootExplorer();
 			}
-		}
+			if (!singlePlayer)
+			{
+				if (isLive2)
+				{
+					MoveExplorer2();
+					ShootExplorer2();
+				}
+			}
 
+			if (!isLive1 && !isLive2)
+				isPlaying = false;
+		}
 
 
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
 			SetScene = 0;
 			isLive1 = false;
+			isLive2 = false;
+			isPlaying = false;
 		}
 	}
 
@@ -91,13 +98,22 @@ namespace OkamiIndustries
 		DrawTextureEx(FloorGame, Floorpos2, 0, 1, WHITE);
 		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 20, WHITE);
 
-		DrawExplorer();
-		DrawExplorer2();
-		DrawBullets();
+		if (isLive1)
+		{
+			DrawExplorer();
+			DrawBullets();
+		}
+
+		if (isLive2)
+		{
+			DrawExplorer2();
+			DrawBullets2();
+		}
+
 		DrawObstacles();
 		DrawUFO();
 
-		if (!isLive1)
+		if (!isLive1 && !isLive2)
 		{
 			DrawText(TextFormat("Score: %05i", score * 100), GetScreenWidth() / 4, GetScreenHeight() / 2, 150, RED);
 			DrawText("ESC to return the menu", GetScreenWidth() / 3, GetScreenHeight() / 2 + 300, 50, WHITE);

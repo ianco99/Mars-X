@@ -1,6 +1,7 @@
 #include "UFO.h"
 #include <cmath>
 #include "raylib.h"
+#include "../GameLoop/GameLoop.h"
 #include "../CoreLoop/CoreLoop.h"
 
 
@@ -17,6 +18,10 @@ namespace OkamiIndustries
     extern int score;
     const int Ammo = 100;
     extern Circle bullet[Ammo];
+    extern Circle bullet2[Ammo];
+
+    extern bool isLive1;
+    extern bool isLive2;
 
     void InitUFO()
     {
@@ -44,7 +49,8 @@ namespace OkamiIndustries
             {
                 for (int j = 0; j < Ammo; j++)
                 {
-                    if (CheckCollisionCircleRec(bullet[j].Position, static_cast <float>(bullet[j].Radius), UFOs[i]))
+                    if ((CheckCollisionCircleRec(bullet[j].Position, static_cast <float>(bullet[j].Radius), UFOs[i])) ||
+                        (CheckCollisionCircleRec(bullet2[j].Position, static_cast <float>(bullet2[j].Radius), UFOs[i])))
                     {
                         UFOs[i].x = -500 * maxUFOs - 1;
                         score++;

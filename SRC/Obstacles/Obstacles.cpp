@@ -12,6 +12,11 @@ namespace OkamiIndustries
 	float ObstaclesRotation = 0;
 
 	extern Explorer explorer1;
+	extern Explorer explorer2;
+
+	extern bool isLive1;
+	extern bool isLive2;
+
 	extern int score;
 
 	void InitObstacles()
@@ -43,7 +48,7 @@ namespace OkamiIndustries
 	{
 		for (int i = 0; i < maxObstacles; i++)
 		{
-			if (CheckCollision(Obstacles[i], explorer1.body))
+			if ((CheckCollision(Obstacles[i], explorer1.body) && isLive1) || (CheckCollision(Obstacles[i], explorer2.body) && isLive2))
 			{
 				DrawRectanglePro(Obstacles[i], ObstaclesOrigin[i], ObstaclesRotation, RED);
 			}
