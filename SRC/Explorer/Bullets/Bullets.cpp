@@ -16,7 +16,7 @@ namespace OkamiIndustries
 	float bulletAceleration = 1000.0f;
 	float timer = 0;
 
-	void initBullets()
+	void InitBullets()
 	{
 		currentBullet = 0;
 

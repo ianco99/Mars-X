@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SRC\CoreLoop\CoreLoop.cpp" />
+    <ClCompile Include="SRC\CreditsLoop\CreditsLoop.cpp" />
     <ClCompile Include="SRC\Explorer\Bullets\Bullets.cpp" />
     <ClCompile Include="SRC\Explorer\Explorer.cpp" />
     <ClCompile Include="SRC\GameLoop\GameLoop.cpp" />
@@ -30,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRC\CoreLoop\CoreLoop.h" />
+    <ClInclude Include="SRC\CreditsLoop\CreditsLoop.h" />
     <ClInclude Include="SRC\Explorer\Bullets\Bullets.h" />
     <ClInclude Include="SRC\Explorer\Explorer.h" />
     <ClInclude Include="SRC\GameLoop\GameLoop.h" />

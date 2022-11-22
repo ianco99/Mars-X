@@ -2,7 +2,7 @@
 
 namespace OkamiIndustries
 {
-	void initUFO();
+	void InitUFO();
 	void MoveUFO();
 	void DrawUFO();
 }

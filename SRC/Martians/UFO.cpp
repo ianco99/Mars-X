@@ -18,7 +18,7 @@ namespace OkamiIndustries
     const int Ammo = 100;
     extern Circle bullet[Ammo];
 
-    void initUFO()
+    void InitUFO()
     {
         for (int i = 0; i < maxUFOs; i++)
         {

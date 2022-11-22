@@ -3,6 +3,7 @@
 #include "../Explorer/Explorer.h"
 #include "../Obstacles/Obstacles.h"
 #include "../MenuLoop/MenuLoop.h"
+#include "../CreditsLoop/CreditsLoop.h"
 #include "../GameLoop/GameLoop.h"
 #include "../Martians/UFO.h"
 #include "../Explorer/Bullets/Bullets.h"
@@ -16,9 +17,9 @@ namespace OkamiIndustries
     bool QuitGame = true;
 
     Texture2D BackgroundGame;
-    Texture2D Parallax1Game;
-    Texture2D Parallax2Game;
-    Texture2D Parallax3Game;
+    Texture2D Parallax1Mountains;
+    Texture2D Parallax2Clouds;
+    Texture2D Parallax3Clouds;
     Texture2D FloorGame;
 
     int SelectScene = 0;
@@ -28,15 +29,15 @@ namespace OkamiIndustries
 
     void CoreLoop()
     {
-
         InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V0.3");
         SetExitKey(KEY_NULL);
         HideCursor();
         //InitExplorer();
         //InitObstacles();
-        //initBullets();
-        //initUFO();
+        //InitBullets();
+        //InitUFO();
         InitMenu();
+        InitCredits();
         InitMouse();
         InitGame();
 
@@ -62,6 +63,11 @@ namespace OkamiIndustries
                 GameLoop(false);
                 break;
             }
+            case 3:
+            {
+                CreditsLoop();
+                break;
+            }
             default:
                 SetScene = 1;
                 break;
@@ -80,12 +86,18 @@ namespace OkamiIndustries
             }
 
             case 1:
+            case 2:
             {
                 DrawGame();
                 break;
             }
+            case 3:
+            {
+                DrawCredits();
+                break;
+            }
             default:
-                SetScene = 1;
+                //SetScene = 1;
                 break;
             }
 

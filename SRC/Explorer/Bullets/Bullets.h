@@ -2,7 +2,7 @@
 
 namespace OkamiIndustries
 {
-	void initBullets();
+	void InitBullets();
 	void ShootExplorer();
 	void DrawBullets();
 }

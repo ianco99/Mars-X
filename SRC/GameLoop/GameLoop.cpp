@@ -11,19 +11,19 @@ namespace OkamiIndustries
 
 	extern int SetScene;
 	extern Texture2D BackgroundGame;
-	extern Texture2D Parallax1Game;
-	extern Texture2D Parallax2Game;
-	extern Texture2D Parallax3Game;
+	extern Texture2D Parallax1Mountains;
+	extern Texture2D Parallax2Clouds;
+	extern Texture2D Parallax3Clouds;
 	extern Texture2D FloorGame;
 	Vector2 BackgroundPos = { 0,0 };
 	Vector2 Parallax1pos = { 0,0 };
-	Vector2 Parallax1pos2 = { 1920,0 };
+	Vector2 Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
 	Vector2 Parallax2pos = { 0,0 };
-	Vector2 Parallax2pos2 = { 1920,0 };
+	Vector2 Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
 	Vector2 Parallax3pos = { 0,0 };
-	Vector2 Parallax3pos2 = { 1920,0 };
+	Vector2 Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
 	Vector2 Floorpos = { 0,0 };
-	Vector2 Floorpos2 = { 1920,0 };
+	Vector2 Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
 
 	int score = 0;
 	extern bool isLive1;
@@ -35,8 +35,9 @@ namespace OkamiIndustries
 		{
 			InitExplorer1();
 			InitObstacles();
-			initBullets();
-			initUFO();
+			InitBullets();
+			InitUFO();
+			InitBackground();
 			isLive1 = true;
 			score = 0;
 			if (singlePlayer)
@@ -71,12 +72,12 @@ namespace OkamiIndustries
 	void DrawGame()
 	{
 		DrawTextureEx(BackgroundGame, BackgroundPos, 0, 1, WHITE);
-		DrawTextureEx(Parallax1Game, Parallax1pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax1Game, Parallax1pos2, 0, 1, WHITE);
-		DrawTextureEx(Parallax2Game, Parallax2pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax2Game, Parallax2pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax3Game, Parallax3pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax3Game, Parallax3pos2, 0, 1, WHITE);
+		DrawTextureEx(Parallax1Mountains, Parallax1pos, 0, 1, WHITE);
+		DrawTextureEx(Parallax1Mountains, Parallax1pos2, 0, 1, WHITE);
+		DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
+		DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
+		DrawTextureEx(Parallax3Clouds, Parallax3pos, 0, 1, WHITE);
+		DrawTextureEx(Parallax3Clouds, Parallax3pos2, 0, 1, WHITE);
 		DrawTextureEx(FloorGame, Floorpos, 0, 1, WHITE);
 		DrawTextureEx(FloorGame, Floorpos2, 0, 1, WHITE);
 		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 20, WHITE);
@@ -97,11 +98,23 @@ namespace OkamiIndustries
 	void InitGame()
 	{
 		BackgroundGame = LoadTexture("assets/Background.png");
-		Parallax1Game = LoadTexture("assets/parallax 1.png");
-		Parallax2Game = LoadTexture("assets/parallax 2.png");
-		Parallax3Game = LoadTexture("assets/parallax 3.png");
+		Parallax1Mountains = LoadTexture("assets/parallax 1.png");
+		Parallax2Clouds = LoadTexture("assets/parallax 2.png");
+		Parallax3Clouds = LoadTexture("assets/parallax 3.png");
 		FloorGame = LoadTexture("assets/Floor.png");
+	}
 
+	void InitBackground()
+	{
+		BackgroundPos = { 0,0 };
+		Parallax1pos = { 0,0 };
+		Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
+		Parallax2pos = { 0,0 };
+		Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
+		Parallax3pos = { 0,0 };
+		Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
+		Floorpos = { 0,0 };
+		Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
 	}
 
 	static void updateBackground()
@@ -115,44 +128,44 @@ namespace OkamiIndustries
 		Floorpos.x -= 800 * GetFrameTime();
 		Floorpos2.x -= 800 * GetFrameTime();
 
-		if (Parallax1pos.x < -1920)
+		if (Parallax1pos.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Parallax1pos.x = 1920;
+			Parallax1pos.x = static_cast<float>(GetScreenWidth());
 		}
 
-		if (Parallax1pos2.x < -1920)
+		if (Parallax1pos2.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Parallax1pos2.x = 1920;
+			Parallax1pos2.x = static_cast<float>(GetScreenWidth());
 		}
 
-		if (Parallax2pos.x < -1920)
+		if (Parallax2pos.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Parallax2pos.x = 1920;
+			Parallax2pos.x = static_cast<float>(GetScreenWidth());
 		}
 
-		if (Parallax2pos2.x < -1920)
+		if (Parallax2pos2.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Parallax2pos2.x = 1920;
+			Parallax2pos2.x = static_cast<float>(GetScreenWidth());
 		}
 
-		if (Parallax3pos.x < -1920)
+		if (Parallax3pos.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Parallax3pos.x = 1920;
+			Parallax3pos.x = static_cast<float>(GetScreenWidth());
 		}
 
-		if (Parallax3pos2.x < -1920)
+		if (Parallax3pos2.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Parallax3pos2.x = 1920;
+			Parallax3pos2.x = static_cast<float>(GetScreenWidth());
 		}
 
-		if (Floorpos.x < -1920)
+		if (Floorpos.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Floorpos.x = 1920;
+			Floorpos.x = static_cast<float>(GetScreenWidth());
 		}
 
-		if (Floorpos2.x < -1920)
+		if (Floorpos2.x < -static_cast<float>(GetScreenWidth()))
 		{
-			Floorpos2.x = 1920;
+			Floorpos2.x = static_cast<float>(GetScreenWidth());
 		}
 
 	}

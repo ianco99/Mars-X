@@ -28,6 +28,9 @@
     <Filter Include="SRC\Explorer\Bullets">
       <UniqueIdentifier>{a771954f-d50b-4970-b4dd-532587e27df5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SRC\CreditsLoop">
+      <UniqueIdentifier>{084080eb-c506-421c-8463-fa92db99aeb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SRC\Main\Main.cpp">
@@ -54,6 +57,9 @@
     <ClCompile Include="SRC\Explorer\Bullets\Bullets.cpp">
       <Filter>SRC\Explorer\Bullets</Filter>
     </ClCompile>
+    <ClCompile Include="SRC\CreditsLoop\CreditsLoop.cpp">
+      <Filter>SRC\CreditsLoop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRC\CoreLoop\CoreLoop.h">
@@ -76,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="SRC\Explorer\Bullets\Bullets.h">
       <Filter>SRC\Explorer\Bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="SRC\CreditsLoop\CreditsLoop.h">
+      <Filter>SRC\CreditsLoop</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
