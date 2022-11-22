@@ -40,7 +40,8 @@ namespace OkamiIndustries
 		normalDir = { Dif.x / Module, Dif.y / Module };
 
 		timer += GetFrameTime();
-		if (IsKeyPressed(KEY_W))
+
+		if (IsKeyPressed(KEY_LEFT_CONTROL))
 		{
 			if (timer > 0.1f)
 			{

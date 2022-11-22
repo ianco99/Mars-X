@@ -46,9 +46,12 @@ namespace OkamiIndustries
 			}
 			else
 			{
+				isLive2 = true;
+				InitExplorer2();
 				score = 5;
 			}
 		}
+
 
 		if (isLive1)
 		{
@@ -58,15 +61,21 @@ namespace OkamiIndustries
 			MoveObstacles();
 			MoveUFO();
 		}
+		if (!singlePlayer)
+		{
+			if (isLive2)
+			{
+				MoveExplorer2();
+			}
+		}
+
+
 
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
 			SetScene = 0;
 			isLive1 = false;
 		}
-
-		
-
 	}
 
 	void DrawGame()
@@ -83,6 +92,7 @@ namespace OkamiIndustries
 		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 20, WHITE);
 
 		DrawExplorer();
+		DrawExplorer2();
 		DrawBullets();
 		DrawObstacles();
 		DrawUFO();
@@ -90,7 +100,7 @@ namespace OkamiIndustries
 		if (!isLive1)
 		{
 			DrawText(TextFormat("Score: %05i", score * 100), GetScreenWidth() / 4, GetScreenHeight() / 2, 150, RED);
-			DrawText("ESC to retun the menu", GetScreenWidth() / 3, GetScreenHeight() / 2 + 300, 50, WHITE);
+			DrawText("ESC to return the menu", GetScreenWidth() / 3, GetScreenHeight() / 2 + 300, 50, WHITE);
 		}
 
 	}
