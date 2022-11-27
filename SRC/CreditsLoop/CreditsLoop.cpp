@@ -14,6 +14,7 @@ namespace OkamiIndustries
 	Rectangle creditsButton[maxButtons];
 	Vector2 creditsOriginButton[maxButtons];
 	extern Rectangle Mouse;
+	extern Texture2D buttonSprite;
 
 	void InitCredits()
 	{
@@ -41,6 +42,11 @@ namespace OkamiIndustries
 				{
 					SetScene = 0;
 				}
+				break;
+			}
+			else
+			{
+				hoverBackButton = false;
 			}
 		}
 	}
@@ -57,12 +63,13 @@ namespace OkamiIndustries
 		{
 			if (hoverBackButton)
 			{
-				DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RED);
+				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0], creditsOriginButton[0], creditsButtonRotation, BEIGE);
+				//DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RED);
 			}
 			else
 			{
-
-				DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
+				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
+				//DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
 			}
 		}
 	}

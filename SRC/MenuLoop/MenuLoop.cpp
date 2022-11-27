@@ -12,9 +12,11 @@ namespace OkamiIndustries
 	Rectangle Button[maxButtons];
 	Vector2 originButton[maxButtons];
 	extern Rectangle Mouse;
+	extern Texture2D buttonSprite;
 
 	void InitMenu()
 	{
+		buttonSprite = LoadTexture("assets/button.png");
 		for (int i = 0; i < maxButtons; i++)
 		{
 			Button[i].width = static_cast<float>(GetScreenWidth()) / 6;
@@ -54,12 +56,13 @@ namespace OkamiIndustries
 		{
 			if (SelectScene == i)
 			{
-				DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RED);
+				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i], originButton[i], ButtonRotation, BEIGE);
+				//DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RED);
 			}
 			else
 			{
-
-				DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RAYWHITE);
+				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i], originButton[i], ButtonRotation, RAYWHITE);
+				//DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RAYWHITE);
 			}
 		}
 	}

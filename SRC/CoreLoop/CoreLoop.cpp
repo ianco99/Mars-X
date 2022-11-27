@@ -22,6 +22,8 @@ namespace OkamiIndustries
     Texture2D Parallax3Clouds;
     Texture2D FloorGame;
 
+    Texture2D buttonSprite;
+
     int SelectScene = 0;
     int SetScene = 0;
     Rectangle Mouse;
