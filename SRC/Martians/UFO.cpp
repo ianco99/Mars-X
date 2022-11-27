@@ -20,6 +20,8 @@ namespace OkamiIndustries
     extern Circle bullet[Ammo];
     extern Circle bullet2[Ammo];
 
+    extern Texture2D ufoSprite;
+
     extern bool isLive1;
     extern bool isLive2;
 
@@ -29,8 +31,8 @@ namespace OkamiIndustries
         {
             UFOs[i].x = static_cast <float>(-500 * i);
             UFOs[i].y = static_cast <float>(100);
-            UFOs[i].width = 50;
-            UFOs[i].height = 50;
+            UFOs[i].width = 128;
+            UFOs[i].height = 108;
             isTraveling[i] = true;
             isFlyUp[i] = false;
             isFlyDown[i] = true;
@@ -96,7 +98,8 @@ namespace OkamiIndustries
 	{
         for (int i = 0; i < maxUFOs; i++)
         {
-            DrawRectangle(static_cast <int>(UFOs[i].x), static_cast <int>(UFOs[i].y), static_cast <int>(UFOs[i].width), static_cast <int>(UFOs[i].height), SKYBLUE);
+            DrawTexturePro(ufoSprite, { 0,0, static_cast<float>(ufoSprite.width), static_cast<float>(ufoSprite.height) }, UFOs[i], { 0,0 }, 0.0f, RAYWHITE);
+            //DrawRectangle(static_cast <int>(UFOs[i].x), static_cast <int>(UFOs[i].y), static_cast <int>(UFOs[i].width), static_cast <int>(UFOs[i].height), SKYBLUE);
         }
 	}
 

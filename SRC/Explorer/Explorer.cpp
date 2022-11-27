@@ -6,8 +6,10 @@ namespace OkamiIndustries
 {
 	Explorer explorer1;
 	Explorer explorer2;
-	
+
 	Vector2 explorerOrigin = { explorer1.body.width / 2, explorer1.body.height / 2 };
+
+	const int explorerOffset = 75;
 
 	float explorerRotation = 0;
 	float gravity1 = 500;
@@ -19,26 +21,32 @@ namespace OkamiIndustries
 	extern const int maxObstacles = 3;
 	extern Rectangle Obstacles[maxObstacles];
 
+	extern Texture2D playerSprite;
+
 	void InitExplorer1()
 	{
+		explorer1.color = RAYWHITE;
+
 		explorer1.body.width = 50;
-		explorer1.body.height = 50;
+		explorer1.body.height = 100;
 
 		gravity1 = 0;
 
 		explorer1.body.x = static_cast <float>(GetScreenWidth() / 4);
-		explorer1.body.y = static_cast <float>((GetScreenHeight() / 4) * 3);
+		explorer1.body.y = static_cast <float>((GetScreenHeight() / 8) * 7);
 	}
 
 	void InitExplorer2()
 	{
+		explorer2.color = LIGHTGRAY;
+
 		explorer2.body.width = 50;
-		explorer2.body.height = 50;
+		explorer2.body.height = 100;
 
 		gravity2 = 0;
 
-		explorer2.body.x = static_cast <float>(GetScreenWidth() / 4);
-		explorer2.body.y = static_cast <float>((GetScreenHeight() / 4) * 3);
+		explorer2.body.x = static_cast <float>(GetScreenWidth() / 4) + explorerOffset;
+		explorer2.body.y = static_cast <float>((GetScreenHeight() / 8) * 7);
 	}
 
 	void MoveExplorer()
@@ -62,9 +70,9 @@ namespace OkamiIndustries
 			gravity1 += 500 * GetFrameTime();
 		}
 
-		
+
 	}
-	
+
 	void MoveExplorer2()
 	{
 		explorer2.body.y = explorer2.body.y + gravity2 * GetFrameTime();
@@ -86,7 +94,7 @@ namespace OkamiIndustries
 			gravity2 += 500 * GetFrameTime();
 		}
 
-		
+
 	}
 
 	void DrawExplorer()
@@ -95,13 +103,15 @@ namespace OkamiIndustries
 		{
 			if (CheckCollision(Obstacles[i], explorer1.body) && isLive1)
 			{
-				DrawRectanglePro(explorer1.body, explorer1.bodyOrigin, explorerRotation, RED);
+				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer1.body, { 0,0 }, 0, explorer1.color);
+				//DrawRectanglePro(explorer1.body, explorer1.bodyOrigin, explorerRotation, RED);
 				isLive1 = false;
 				break;
 			}
 			else
 			{
-				DrawRectanglePro(explorer1.body, explorer1.bodyOrigin, explorerRotation, RAYWHITE);
+				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer1.body, { 0,0 }, 0, explorer1.color);
+				//DrawRectanglePro(explorer1.body, explorer1.bodyOrigin, explorerRotation, RAYWHITE);
 			}
 
 		}
@@ -113,13 +123,15 @@ namespace OkamiIndustries
 		{
 			if (CheckCollision(Obstacles[i], explorer2.body) && isLive2)
 			{
-				DrawRectanglePro(explorer2.body, explorer2.bodyOrigin, explorerRotation, RED);
+				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer2.body, { 0,0 }, 0, explorer2.color);
+				//DrawRectanglePro(explorer2.body, explorer2.bodyOrigin, explorerRotation, RED);
 				isLive2 = false;
 				break;
 			}
 			else
 			{
-				DrawRectanglePro(explorer2.body, explorer2.bodyOrigin, explorerRotation, RAYWHITE);
+				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer2.body, { 0,0 }, 0, explorer2.color);
+				//DrawRectanglePro(explorer2.body, explorer2.bodyOrigin, explorerRotation, RAYWHITE);
 			}
 
 		}

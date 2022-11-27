@@ -10,11 +10,17 @@ namespace OkamiIndustries
 {
 
 	extern int SetScene;
+
 	extern Texture2D BackgroundGame;
 	extern Texture2D Parallax1Mountains;
 	extern Texture2D Parallax2Clouds;
 	extern Texture2D Parallax3Clouds;
 	extern Texture2D FloorGame;
+
+	Texture2D playerSprite;
+	Texture2D obstacleSprite;
+	Texture2D ufoSprite;
+
 	Vector2 BackgroundPos = { 0,0 };
 	Vector2 Parallax1pos = { 0,0 };
 	Vector2 Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
@@ -123,6 +129,10 @@ namespace OkamiIndustries
 
 	void InitGame()
 	{
+		playerSprite = LoadTexture("assets/player.png");
+		obstacleSprite = LoadTexture("assets/obstacle.png");
+		ufoSprite = LoadTexture("assets/ufo.png");
+
 		BackgroundGame = LoadTexture("assets/Background.png");
 		Parallax1Mountains = LoadTexture("assets/parallax 1.png");
 		Parallax2Clouds = LoadTexture("assets/parallax 2.png");

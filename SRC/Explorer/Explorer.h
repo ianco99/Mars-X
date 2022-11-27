@@ -7,6 +7,8 @@ namespace OkamiIndustries
 		Rectangle body;
 		Vector2 bodyOrigin;
 
+		Color color;
+
 		float rotation;
 		float acceleration;
 	};

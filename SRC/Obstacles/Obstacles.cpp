@@ -11,6 +11,8 @@ namespace OkamiIndustries
 	Vector2 ObstaclesOrigin[maxObstacles]; 
 	float ObstaclesRotation = 0;
 
+	extern Texture2D obstacleSprite;
+
 	extern Explorer explorer1;
 	extern Explorer explorer2;
 
@@ -24,9 +26,9 @@ namespace OkamiIndustries
 		for (int i = 0; i < maxObstacles; i++)
 		{
 			Obstacles[i].x = static_cast <float>(GetScreenWidth() + i * 700);
-			Obstacles[i].y = static_cast <float>((GetScreenHeight() / 4) * 3);
-			Obstacles[i].width = 30;
-			Obstacles[i].height = 30;
+			Obstacles[i].y = static_cast <float>((GetScreenHeight() / 10) * 7);
+			Obstacles[i].width = 98;
+			Obstacles[i].height = 146;
 			ObstaclesOrigin[i] = { Obstacles[i].width / 2, Obstacles[i].height / 2 };
 		}
 	}
@@ -50,11 +52,11 @@ namespace OkamiIndustries
 		{
 			if ((CheckCollision(Obstacles[i], explorer1.body) && isLive1) || (CheckCollision(Obstacles[i], explorer2.body) && isLive2))
 			{
-				DrawRectanglePro(Obstacles[i], ObstaclesOrigin[i], ObstaclesRotation, RED);
+				DrawTexturePro(obstacleSprite, { 0,0, static_cast<float>(obstacleSprite.width), static_cast<float>(obstacleSprite.height) }, Obstacles[i], { 0,0 }, 0, RAYWHITE);
 			}
 			else
 			{
-				DrawRectanglePro(Obstacles[i], ObstaclesOrigin[i], ObstaclesRotation, RAYWHITE);
+				DrawTexturePro(obstacleSprite, { 0,0, static_cast<float>(obstacleSprite.width), static_cast<float>(obstacleSprite.height) }, Obstacles[i], { 0,0 }, 0, RAYWHITE);
 			}
 		}
 	}
