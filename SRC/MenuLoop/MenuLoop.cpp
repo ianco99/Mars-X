@@ -66,14 +66,12 @@ namespace OkamiIndustries
 			if (SelectScene == i)
 			{
 				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i].body, originButton[i], ButtonRotation, BEIGE);
-				DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).y / 2), 42, RAYWHITE);
-				//DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RED);
+				DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + Button[i].body.width / 2 - MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).y / 2), 42, WHITE);
 			}
 			else
 			{
 				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i].body, originButton[i], ButtonRotation, RAYWHITE);
-				DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).y / 2), 42, WHITE);
-				//DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RAYWHITE);
+				DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + Button[i].body.width / 2 - MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).y / 2), 42, WHITE);
 			}
 		}
 

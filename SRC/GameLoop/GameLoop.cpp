@@ -4,6 +4,7 @@
 #include "../Obstacles/Obstacles.h"
 #include "../Martians/UFO.h"
 #include "../Explorer/Bullets/Bullets.h"
+#include <iostream>
 
 
 namespace OkamiIndustries
@@ -21,15 +22,23 @@ namespace OkamiIndustries
 	Texture2D obstacleSprite;
 	Texture2D ufoSprite;
 
+	Rectangle backgroundImages[8];
+
+	//Rectangle background;
+	//Rectangle parallax1;
+	//Rectangle parallax2;
+	//Rectangle parallax3;
+	//Rectangle floor;
+
 	Vector2 BackgroundPos = { 0,0 };
-	Vector2 Parallax1pos = { 0,0 };
-	Vector2 Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
-	Vector2 Parallax2pos = { 0,0 };
-	Vector2 Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
-	Vector2 Parallax3pos = { 0,0 };
-	Vector2 Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
-	Vector2 Floorpos = { 0,0 };
-	Vector2 Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
+	//Vector2 Parallax1pos = { 0,0 };
+	//Vector2 Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
+	//Vector2 Parallax2pos = { 0,0 };
+	//Vector2 Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
+	//Vector2 Parallax3pos = { 0,0 };
+	//Vector2 Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
+	//Vector2 Floorpos = { 0,0 };
+	//Vector2 Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
 
 	int score = 0;
 	extern bool isLive1;
@@ -78,7 +87,11 @@ namespace OkamiIndustries
 			}
 
 			if (!isLive1 && !isLive2)
+			{
 				isPlaying = false;
+				SetScene = 0;
+			}
+
 		}
 
 
@@ -94,14 +107,25 @@ namespace OkamiIndustries
 	void DrawGame()
 	{
 		DrawTextureEx(BackgroundGame, BackgroundPos, 0, 1, WHITE);
-		DrawTextureEx(Parallax1Mountains, Parallax1pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax1Mountains, Parallax1pos2, 0, 1, WHITE);
-		DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax3Clouds, Parallax3pos, 0, 1, WHITE);
-		DrawTextureEx(Parallax3Clouds, Parallax3pos2, 0, 1, WHITE);
-		DrawTextureEx(FloorGame, Floorpos, 0, 1, WHITE);
-		DrawTextureEx(FloorGame, Floorpos2, 0, 1, WHITE);
+
+		DrawTexturePro(Parallax1Mountains, { 0,0, static_cast<float>(Parallax1Mountains.width), static_cast<float>(Parallax1Mountains.height) }, backgroundImages[0], { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax1Mountains, { 0,0, static_cast<float>(Parallax1Mountains.width), static_cast<float>(Parallax1Mountains.height) }, backgroundImages[4], { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax2Clouds, { 0,0, static_cast<float>(Parallax2Clouds.width), static_cast<float>(Parallax2Clouds.height) }, backgroundImages[1], { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax2Clouds, { 0,0, static_cast<float>(Parallax2Clouds.width), static_cast<float>(Parallax2Clouds.height) }, backgroundImages[5], { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax3Clouds, { 0,0, static_cast<float>(Parallax3Clouds.width), static_cast<float>(Parallax3Clouds.height) }, backgroundImages[2], { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax3Clouds, { 0,0, static_cast<float>(Parallax3Clouds.width), static_cast<float>(Parallax3Clouds.height) }, backgroundImages[6], { 0,0 }, 0, WHITE);
+		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[3], { 0,0 }, 0, WHITE);
+		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[7], { 0,0 }, 0, WHITE);
+
+
+		//DrawTextureEx(Parallax1Mountains, Parallax1pos, 0, 1, WHITE);
+		//DrawTextureEx(Parallax1Mountains, Parallax1pos2, 0, 1, WHITE);
+		//DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
+		//DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
+		//DrawTextureEx(Parallax3Clouds, Parallax3pos, 0, 1, WHITE);
+		//DrawTextureEx(Parallax3Clouds, Parallax3pos2, 0, 1, WHITE);
+		//DrawTextureEx(FloorGame, Floorpos, 0, 1, WHITE);
+		//DrawTextureEx(FloorGame, Floorpos2, 0, 1, WHITE);
 		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 20, WHITE);
 
 		if (isLive1)
@@ -142,67 +166,103 @@ namespace OkamiIndustries
 
 	void InitBackground()
 	{
-		BackgroundPos = { 0,0 };
-		Parallax1pos = { 0,0 };
-		Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
-		Parallax2pos = { 0,0 };
-		Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
-		Parallax3pos = { 0,0 };
-		Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
-		Floorpos = { 0,0 };
-		Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
+		//background = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+
+		for (int i = 0; i < 4; i++)
+		{
+			backgroundImages[i] = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+		}
+
+		for (int i = 4; i < 8; i++)
+		{
+			backgroundImages[i] = { static_cast<float>(GetScreenWidth()),0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+		}
+
+		//BackgroundPos = { 0,0 };
+		//Parallax1pos = { 0,0 };
+		//Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
+		//Parallax2pos = { 0,0 };
+		//Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
+		//Parallax3pos = { 0,0 };
+		//Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
+		//Floorpos = { 0,0 };
+		//Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
 	}
 
 	static void updateBackground()
 	{
-		Parallax1pos.x -= 200 * GetFrameTime();
-		Parallax1pos2.x -= 200 * GetFrameTime();
-		Parallax2pos.x -= 400 * GetFrameTime();
-		Parallax2pos2.x -= 400 * GetFrameTime();
-		Parallax3pos.x -= 600 * GetFrameTime();
-		Parallax3pos2.x -= 600 * GetFrameTime();
-		Floorpos.x -= 800 * GetFrameTime();
-		Floorpos2.x -= 800 * GetFrameTime();
+		//Parallax1pos.x -= 200 * GetFrameTime();
+		//Parallax1pos2.x -= 200 * GetFrameTime();
+		//Parallax2pos.x -= 400 * GetFrameTime();
+		//Parallax2pos2.x -= 400 * GetFrameTime();
+		//Parallax3pos.x -= 600 * GetFrameTime();
+		//Parallax3pos2.x -= 600 * GetFrameTime();
+		//Floorpos.x -= 800 * GetFrameTime();
+		//Floorpos2.x -= 800 * GetFrameTime();
 
-		if (Parallax1pos.x < -static_cast<float>(GetScreenWidth()))
+
+
+		backgroundImages[0].x -= 200 * GetFrameTime();
+		backgroundImages[1].x -= 400 * GetFrameTime();
+		backgroundImages[2].x -= 600 * GetFrameTime();
+		backgroundImages[3].x -= 800 * GetFrameTime();
+
+		backgroundImages[4].x -= 200 * GetFrameTime();
+		backgroundImages[5].x -= 400 * GetFrameTime();
+		backgroundImages[6].x -= 600 * GetFrameTime();
+		backgroundImages[7].x -= 800 * GetFrameTime();
+
+		for (int i = 0; i < 8; i++)
 		{
-			Parallax1pos.x = static_cast<float>(GetScreenWidth());
+			if (backgroundImages[i].x + backgroundImages[i].width <= 0)
+			{
+				if(i < 4)
+				backgroundImages[i].x = backgroundImages[i+4].x + backgroundImages[i + 4].width;
+				else
+					backgroundImages[i].x = backgroundImages[i - 4].x + backgroundImages[i - 4].width;
+			}
 		}
 
-		if (Parallax1pos2.x < -static_cast<float>(GetScreenWidth()))
-		{
-			Parallax1pos2.x = static_cast<float>(GetScreenWidth());
-		}
+		//if (Parallax2pos.x < 0)
+		//{
+		//	Parallax1pos.x = static_cast<float>(GetScreenWidth());
+		//	Parallax2pos.x = static_cast<float>(GetScreenWidth() * 2);
+		//}
 
-		if (Parallax2pos.x < -static_cast<float>(GetScreenWidth()))
-		{
-			Parallax2pos.x = static_cast<float>(GetScreenWidth());
-		}
+		//if (Parallax1pos2.x < -static_cast<float>(GetScreenWidth()))
+		//{
+		//	Parallax1pos2.x = static_cast<float>(GetScreenWidth());
+		//}
 
-		if (Parallax2pos2.x < -static_cast<float>(GetScreenWidth()))
-		{
-			Parallax2pos2.x = static_cast<float>(GetScreenWidth());
-		}
+		//if (Parallax2pos.x < -static_cast<float>(GetScreenWidth()))
+		//{
+		//	Parallax2pos.x = static_cast<float>(GetScreenWidth());
+		//}
 
-		if (Parallax3pos.x < -static_cast<float>(GetScreenWidth()))
-		{
-			Parallax3pos.x = static_cast<float>(GetScreenWidth());
-		}
+		//if (Parallax2pos2.x < -static_cast<float>(GetScreenWidth()))
+		//{
+		//	Parallax2pos2.x = static_cast<float>(GetScreenWidth());
+		//}
 
-		if (Parallax3pos2.x < -static_cast<float>(GetScreenWidth()))
-		{
-			Parallax3pos2.x = static_cast<float>(GetScreenWidth());
-		}
+		//if (Parallax3pos.x < -static_cast<float>(GetScreenWidth()))
+		//{
+		//	Parallax3pos.x = static_cast<float>(GetScreenWidth());
+		//}
 
-		if (Floorpos.x < -static_cast<float>(GetScreenWidth()))
-		{
-			Floorpos.x = static_cast<float>(GetScreenWidth());
-		}
+		//if (Parallax3pos2.x < -static_cast<float>(GetScreenWidth()))
+		//{
+		//	Parallax3pos2.x = static_cast<float>(GetScreenWidth());
+		//}
 
-		if (Floorpos2.x < -static_cast<float>(GetScreenWidth()))
-		{
-			Floorpos2.x = static_cast<float>(GetScreenWidth());
-		}
+		//if (Floorpos.x < -static_cast<float>(GetScreenWidth()))
+		//{
+		//	Floorpos.x = static_cast<float>(GetScreenWidth());
+		//}
+
+		//if (Floorpos2.x < -static_cast<float>(GetScreenWidth()))
+		//{
+		//	Floorpos2.x = static_cast<float>(GetScreenWidth());
+		//}
 
 	}
 }
