@@ -64,11 +64,13 @@ namespace OkamiIndustries
 			if (hoverBackButton)
 			{
 				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0], creditsOriginButton[0], creditsButtonRotation, BEIGE);
+				//DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + MeasureTextEx(GetFontDefault(), "PLAY (1P)", 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), "PLAY (1P)", 42, 0).y / 2), 42, WHITE);
 				//DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RED);
 			}
 			else
 			{
 				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
+			//	DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + MeasureTextEx(GetFontDefault(), "PLAY (1P)", 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), "PLAY (1P)", 42, 0).y / 2), 42, WHITE);
 				//DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
 			}
 		}

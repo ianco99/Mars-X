@@ -9,22 +9,29 @@ namespace OkamiIndustries
 	extern int SelectScene;
 	extern int SetScene;
 	extern bool QuitGame;
-	Rectangle Button[maxButtons];
+	button Button[maxButtons];
 	Vector2 originButton[maxButtons];
 	extern Rectangle Mouse;
 	extern Texture2D buttonSprite;
+	extern Texture2D menuBackgroundSprite;
 
 	void InitMenu()
 	{
 		buttonSprite = LoadTexture("assets/button.png");
+		menuBackgroundSprite = LoadTexture("assets/menuBackground.png");
 		for (int i = 0; i < maxButtons; i++)
 		{
-			Button[i].width = static_cast<float>(GetScreenWidth()) / 6;
-			Button[i].height = static_cast<float>(GetScreenHeight()) / 12;
-			Button[i].x = static_cast<float>((GetScreenWidth() / 2)) - Button[i].width / 2;
-			Button[i].y = static_cast<float>((GetScreenHeight() / 8) * (i * 1.5f) + GetScreenHeight() / 3) - Button[i].height / 2;
+			Button[i].body.width = static_cast<float>(GetScreenWidth()) / 6;
+			Button[i].body.height = static_cast<float>(GetScreenHeight()) / 12;
+			Button[i].body.x = static_cast<float>((GetScreenWidth() / 2)) - Button[i].body.width / 2;
+			Button[i].body.y = static_cast<float>((GetScreenHeight() / 8) * (i * 1.5f) + GetScreenHeight() / 3) - Button[i].body.height / 2;
 			originButton[i] = { 0, 0};
 		}
+
+		Button[0].text = "PLAY (1P)";
+		Button[1].text = "PLAY (2P)";
+		Button[2].text = "CREDITS";
+		Button[3].text = "QUIT";
 	}
 
 	void MenuLoop()
@@ -36,7 +43,7 @@ namespace OkamiIndustries
 
 		for (int i = 0; i < maxButtons; i++)
 		{
-			if (CheckCollisionRecs(Mouse, Button[i]))
+			if (CheckCollisionRecs(Mouse, Button[i].body))
 			{
 				SelectScene = i;
 				if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
@@ -50,21 +57,26 @@ namespace OkamiIndustries
 	void DrawMenu()
 	{
 
+		DrawTexturePro(menuBackgroundSprite, { 0,0, static_cast<float>(menuBackgroundSprite.width), static_cast<float>(menuBackgroundSprite.height) }, { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) }, { 0,0 },  0, GRAY);
+		
 		DrawTitle(TextFormat("MARS - X"));
 
 		for (int i = 0; i < maxButtons; i++)
 		{
 			if (SelectScene == i)
 			{
-				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i], originButton[i], ButtonRotation, BEIGE);
+				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i].body, originButton[i], ButtonRotation, BEIGE);
+				DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).y / 2), 42, RAYWHITE);
 				//DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RED);
 			}
 			else
 			{
-				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i], originButton[i], ButtonRotation, RAYWHITE);
+				DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, Button[i].body, originButton[i], ButtonRotation, RAYWHITE);
+				DrawText(TextFormat(Button[i].text), static_cast<int>(Button[i].body.x + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).x / 2), static_cast<int>(Button[i].body.y + MeasureTextEx(GetFontDefault(), Button[i].text, 42, 0).y / 2), 42, WHITE);
 				//DrawRectanglePro(Button[i], originButton[i], ButtonRotation, RAYWHITE);
 			}
 		}
+
 	}
 
 	void DrawTitle(const char* text)

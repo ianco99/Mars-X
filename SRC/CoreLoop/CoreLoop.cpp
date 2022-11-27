@@ -16,6 +16,8 @@ namespace OkamiIndustries
 
     bool QuitGame = true;
 
+    Texture2D menuBackgroundSprite;
+
     Texture2D BackgroundGame;
     Texture2D Parallax1Mountains;
     Texture2D Parallax2Clouds;
