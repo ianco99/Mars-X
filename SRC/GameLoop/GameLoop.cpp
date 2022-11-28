@@ -9,6 +9,8 @@
 
 namespace OkamiIndustries
 {
+	void UnloadSounds();
+	void UnloadTextures();
 
 	extern int SetScene;
 
@@ -24,21 +26,8 @@ namespace OkamiIndustries
 
 	Rectangle backgroundImages[8];
 
-	//Rectangle background;
-	//Rectangle parallax1;
-	//Rectangle parallax2;
-	//Rectangle parallax3;
-	//Rectangle floor;
-
 	Vector2 BackgroundPos = { 0,0 };
-	//Vector2 Parallax1pos = { 0,0 };
-	//Vector2 Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
-	//Vector2 Parallax2pos = { 0,0 };
-	//Vector2 Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
-	//Vector2 Parallax3pos = { 0,0 };
-	//Vector2 Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
-	//Vector2 Floorpos = { 0,0 };
-	//Vector2 Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
+
 
 	int score = 0;
 	extern bool isLive1;
@@ -102,11 +91,36 @@ namespace OkamiIndustries
 			isLive2 = false;
 			isPlaying = false;
 			hasLost = false;
+
+			UnloadSounds();
+			UnloadTextures();
+
 		}
 		else if (IsKeyDown(KEY_SPACE) && hasLost)
 		{
+			UnloadSounds();
+			UnloadTextures();
 			hasLost = false;
 		}
+	}
+
+	void UnloadSounds()
+	{
+
+	}
+
+	void UnloadTextures()
+	{
+		UnloadTexture(ufoSprite);
+		UnloadTexture(obstacleSprite);
+		UnloadTexture(playerSprite);
+
+		
+		UnloadTexture(BackgroundGame);
+		UnloadTexture(Parallax1Mountains);
+		UnloadTexture(Parallax2Clouds);
+		UnloadTexture(Parallax3Clouds);
+		UnloadTexture(FloorGame);
 	}
 
 	void DrawGame()
@@ -148,9 +162,9 @@ namespace OkamiIndustries
 		DrawObstacles();
 		DrawUFO();
 
-		if (!isLive1 && !isLive2  && hasLost)
+		if (!isLive1 && !isLive2 && hasLost)
 		{
-			
+
 			DrawText(TextFormat("Score: %05i", score * 100), GetScreenWidth() / 4, GetScreenHeight() / 2, 150, RED);
 			DrawText("ESC to return the menu", GetScreenWidth() / 3, GetScreenHeight() / 2 + 300, 50, WHITE);
 			DrawText("SPACE to play again", GetScreenWidth() / 3, GetScreenHeight() / 2 + 350, 50, WHITE);
@@ -223,8 +237,8 @@ namespace OkamiIndustries
 		{
 			if (backgroundImages[i].x + backgroundImages[i].width <= 0)
 			{
-				if(i < 4)
-				backgroundImages[i].x = backgroundImages[i+4].x + backgroundImages[i + 4].width;
+				if (i < 4)
+					backgroundImages[i].x = backgroundImages[i + 4].x + backgroundImages[i + 4].width;
 				else
 					backgroundImages[i].x = backgroundImages[i - 4].x + backgroundImages[i - 4].width;
 			}

@@ -36,10 +36,7 @@ namespace OkamiIndustries
 		InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V0.3");
 		SetExitKey(KEY_NULL);
 		HideCursor();
-		//InitExplorer();
-		//InitObstacles();
-		//InitBullets();
-		//InitUFO();
+
 		InitMenu();
 		InitCredits();
 		InitMouse();

@@ -28,6 +28,7 @@ namespace OkamiIndustries
 
 	void InitExplorer1()
 	{
+
 		explorer1.color = RAYWHITE;
 
 		explorer1.body.width = 50;
