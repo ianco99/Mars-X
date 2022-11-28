@@ -45,18 +45,19 @@ namespace OkamiIndustries
 	extern bool isLive2;
 
 	bool isPlaying = false;
+	bool hasLost = false;
 
 	void GameLoop(bool singlePlayer)
 	{
-		if (!isPlaying)	//Inits
+		if (!isPlaying && !hasLost)	//Inits
 		{
 			isPlaying = true;
+			isLive1 = true;
 			InitExplorer1();
 			InitObstacles();
 			InitBullets();
 			InitUFO();
 			InitBackground();
-			isLive1 = true;
 			score = 0;
 
 			if (!singlePlayer)
@@ -89,7 +90,6 @@ namespace OkamiIndustries
 			if (!isLive1 && !isLive2)
 			{
 				isPlaying = false;
-				SetScene = 0;
 			}
 
 		}
@@ -101,6 +101,11 @@ namespace OkamiIndustries
 			isLive1 = false;
 			isLive2 = false;
 			isPlaying = false;
+			hasLost = false;
+		}
+		else if (IsKeyDown(KEY_SPACE) && hasLost)
+		{
+			hasLost = false;
 		}
 	}
 
@@ -126,7 +131,7 @@ namespace OkamiIndustries
 		//DrawTextureEx(Parallax3Clouds, Parallax3pos2, 0, 1, WHITE);
 		//DrawTextureEx(FloorGame, Floorpos, 0, 1, WHITE);
 		//DrawTextureEx(FloorGame, Floorpos2, 0, 1, WHITE);
-		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 20, WHITE);
+		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 40, WHITE);
 
 		if (isLive1)
 		{
@@ -143,10 +148,12 @@ namespace OkamiIndustries
 		DrawObstacles();
 		DrawUFO();
 
-		if (!isLive1 && !isLive2)
+		if (!isLive1 && !isLive2  && hasLost)
 		{
+			
 			DrawText(TextFormat("Score: %05i", score * 100), GetScreenWidth() / 4, GetScreenHeight() / 2, 150, RED);
 			DrawText("ESC to return the menu", GetScreenWidth() / 3, GetScreenHeight() / 2 + 300, 50, WHITE);
+			DrawText("SPACE to play again", GetScreenWidth() / 3, GetScreenHeight() / 2 + 350, 50, WHITE);
 		}
 
 	}

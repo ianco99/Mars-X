@@ -8,6 +8,7 @@ namespace OkamiIndustries
 	{
 		Rectangle body;
 		const char* text;
+		const char* link;
 	};
 
 	void MenuLoop();

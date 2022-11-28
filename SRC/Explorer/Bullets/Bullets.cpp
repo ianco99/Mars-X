@@ -69,6 +69,7 @@ namespace OkamiIndustries
 				bullet[currentBullet].Position.y = explorer1.body.y;
 				currentBullet++;
 				timer = 0;
+
 				if (currentBullet >= maxAmmo)
 				{
 					currentBullet = 0;

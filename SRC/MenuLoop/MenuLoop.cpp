@@ -8,7 +8,7 @@ namespace OkamiIndustries
 	float ButtonRotation = 0;
 	extern int SelectScene;
 	extern int SetScene;
-	extern bool QuitGame;
+	extern bool stillRunning;
 	button Button[maxButtons];
 	Vector2 originButton[maxButtons];
 	extern Rectangle Mouse;
@@ -38,7 +38,7 @@ namespace OkamiIndustries
 	{
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
-			QuitGame = false;
+			stillRunning = false;
 		}
 
 		for (int i = 0; i < maxButtons; i++)

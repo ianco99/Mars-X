@@ -2,10 +2,15 @@
 #include "raylib.h"
 #include "../CoreLoop/CoreLoop.h"
 #include "../Explorer/Explorer.h"
+#include <iostream>
 
 namespace OkamiIndustries
 {
 	const int maxObstacles = 3;
+
+	const int distanceRandRangeMax = 1000;
+	const int distanceRandRangeMin = 700;
+
 	int speed = -300;
 	Rectangle Obstacles[maxObstacles];
 	Vector2 ObstaclesOrigin[maxObstacles]; 
@@ -27,7 +32,7 @@ namespace OkamiIndustries
 		{
 			Obstacles[i].x = static_cast <float>(GetScreenWidth() + i * 700);
 			Obstacles[i].y = static_cast <float>((GetScreenHeight() / 10) * 7);
-			Obstacles[i].width = 98;
+			Obstacles[i].width = 58;
 			Obstacles[i].height = 146;
 			ObstaclesOrigin[i] = { Obstacles[i].width / 2, Obstacles[i].height / 2 };
 		}
@@ -40,7 +45,7 @@ namespace OkamiIndustries
 			Obstacles[i].x = Obstacles[i].x + speed * GetFrameTime();
 			if (Obstacles[i].x < 0 - Obstacles[i].width)
 			{
-				Obstacles[i].x = static_cast <float>(GetScreenWidth());
+				Obstacles[i].x = static_cast <float>(GetScreenWidth()) + (rand() % distanceRandRangeMax) + distanceRandRangeMin;
 				score++;
 			}
 		}
@@ -52,11 +57,11 @@ namespace OkamiIndustries
 		{
 			if ((CheckCollision(Obstacles[i], explorer1.body) && isLive1) || (CheckCollision(Obstacles[i], explorer2.body) && isLive2))
 			{
-				DrawTexturePro(obstacleSprite, { 0,0, static_cast<float>(obstacleSprite.width), static_cast<float>(obstacleSprite.height) }, Obstacles[i], { 0,0 }, 0, RAYWHITE);
+				DrawTexturePro(obstacleSprite, { 0,0, static_cast<float>(obstacleSprite.width), static_cast<float>(obstacleSprite.height) }, { Obstacles[i].x, Obstacles[i].y, Obstacles[i].width + 40, Obstacles[i].height }, { 0,0 }, 0, RAYWHITE);
 			}
 			else
 			{
-				DrawTexturePro(obstacleSprite, { 0,0, static_cast<float>(obstacleSprite.width), static_cast<float>(obstacleSprite.height) }, Obstacles[i], { 0,0 }, 0, RAYWHITE);
+				DrawTexturePro(obstacleSprite, { 0,0, static_cast<float>(obstacleSprite.width), static_cast<float>(obstacleSprite.height) }, { Obstacles[i].x, Obstacles[i].y, Obstacles[i].width + 40, Obstacles[i].height }, { 0,0 }, 0, RAYWHITE);
 			}
 		}
 	}

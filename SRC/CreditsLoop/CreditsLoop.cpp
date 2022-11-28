@@ -8,7 +8,7 @@ namespace OkamiIndustries
 	const int maxButtons = 3;
 	extern int SelectScene;
 	extern int SetScene;
-	extern bool QuitGame;
+	extern bool stillRunning;
 
 	bool hoverBackButton;
 
@@ -18,6 +18,15 @@ namespace OkamiIndustries
 	extern Texture2D buttonSprite;
 
 	void InitCredits()
+	{
+		InitBackButton();
+
+		//Background art hyperlink
+		creditsButton[1].body = { static_cast<float>(GetScreenWidth() / 5 - static_cast<float>(MeasureText("ansimuz", 36)),  (static_cast<float>(GetScreenHeight()) / 8) * 5 + 50 , static_cast<float>(MeasureTextEx(GetFontDefault(),"ansimuz", 36,0).x, static_cast<float>(MeasureTextEx(GetFontDefault(),"ansimuz", 36,0).y))) };
+			//static_cast<int>(GetScreenWidth()) / 5 - static_cast<int>(MeasureText("ansimuz", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5 + 50
+	}
+
+	void InitBackButton()
 	{
 		creditsButton[0].body.x = static_cast<float>((GetScreenWidth() / 6));
 		creditsButton[0].body.y = static_cast<float>((GetScreenHeight() - GetScreenHeight() / 4));
@@ -43,7 +52,10 @@ namespace OkamiIndustries
 
 				if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
 				{
-					SetScene = 0;
+					if (i == 0)
+						SetScene = 0;
+
+
 				}
 				break;
 			}
@@ -62,6 +74,20 @@ namespace OkamiIndustries
 		DrawText("Game Programmer:", static_cast<int>(GetScreenWidth()) / 2 - static_cast<int>(MeasureText("Game Programmer:", 36)) / 2, static_cast<int>(GetScreenHeight()) / 4 + static_cast<int>(GetScreenHeight()) / 6, 36, RAYWHITE);
 		DrawText("Ian Kuznicki", static_cast<int>(GetScreenWidth()) / 2 - static_cast<int>(MeasureText("Ian Kuznicki", 36)) / 2, static_cast<int>(GetScreenHeight()) / 3 + static_cast<int>(GetScreenHeight()) / 6, 36, RAYWHITE);
 
+		DrawText("Astronaut Art:", static_cast<int>(GetScreenWidth()) - static_cast<int>(GetScreenWidth()) / 4 - static_cast<int>(MeasureText("Astronaut Art:", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5, 36, RAYWHITE);
+		DrawText("Nathan_4312", static_cast<int>(GetScreenWidth()) - static_cast<int>(GetScreenWidth()) / 4 - static_cast<int>(MeasureText("Nathan_4312", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5 + 50, 36, SKYBLUE);
+
+		DrawText("Alien Art:", static_cast<int>(GetScreenWidth()) / 3 - static_cast<int>(MeasureText("Alien Art:", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5, 36, RAYWHITE);
+		DrawText("raghuram8892", static_cast<int>(GetScreenWidth()) / 3 - static_cast<int>(MeasureText("raghuram8892", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5 + 50, 36, SKYBLUE);
+
+		DrawText("Ufo Art:", static_cast<int>(GetScreenWidth()) / 2 - static_cast<int>(MeasureText("Ufo Art:", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5, 36, RAYWHITE);
+		DrawText("bevouliin.com", static_cast<int>(GetScreenWidth()) / 2 - static_cast<int>(MeasureText("bevouliin.com", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5 + 50, 36, SKYBLUE);
+
+		DrawText("UI Buttons Art:", static_cast<int>(GetScreenWidth()) - static_cast<int>(GetScreenWidth()) / 3 - static_cast<int>(MeasureText("UI Buttons Art:", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 6, 36, RAYWHITE);
+		DrawText("Kenney", static_cast<int>(GetScreenWidth()) - static_cast<int>(GetScreenWidth()) / 3 - static_cast<int>(MeasureText("Kenney", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 6 + 50, 36, SKYBLUE);
+
+		DrawText("Background Art:", static_cast<int>(GetScreenWidth()) - static_cast<int>(GetScreenWidth()) / 5 * 3 - static_cast<int>(MeasureText("Background art:", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 6, 36, RAYWHITE);
+		DrawText("ansimuz", static_cast<int>(GetScreenWidth()) - static_cast<int>(GetScreenWidth()) / 5 * 3 - static_cast<int>(MeasureText("ansimuz", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 6 + 50, 36, SKYBLUE);
 
 		if (hoverBackButton)
 		{
