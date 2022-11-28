@@ -9,8 +9,6 @@
 
 namespace OkamiIndustries
 {
-	void UnloadSounds();
-	void UnloadTextures();
 
 	extern int SetScene;
 
@@ -92,14 +90,9 @@ namespace OkamiIndustries
 			isPlaying = false;
 			hasLost = false;
 
-			UnloadSounds();
-			UnloadTextures();
-
 		}
 		else if (IsKeyDown(KEY_SPACE) && hasLost)
 		{
-			UnloadSounds();
-			UnloadTextures();
 			hasLost = false;
 		}
 	}
