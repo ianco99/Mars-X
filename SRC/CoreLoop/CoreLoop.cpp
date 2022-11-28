@@ -33,14 +33,13 @@ namespace OkamiIndustries
 
 	void CoreLoop()
 	{
-		InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V0.3");
+		InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V1.0");
 		SetExitKey(KEY_NULL);
 		HideCursor();
-
+		InitGame();
 		InitMenu();
 		InitCredits();
 		InitMouse();
-		InitGame();
 
 		while (!WindowShouldClose() && stillRunning)
 		{

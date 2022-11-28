@@ -104,25 +104,6 @@ namespace OkamiIndustries
 		}
 	}
 
-	void UnloadSounds()
-	{
-
-	}
-
-	void UnloadTextures()
-	{
-		UnloadTexture(ufoSprite);
-		UnloadTexture(obstacleSprite);
-		UnloadTexture(playerSprite);
-
-		
-		UnloadTexture(BackgroundGame);
-		UnloadTexture(Parallax1Mountains);
-		UnloadTexture(Parallax2Clouds);
-		UnloadTexture(Parallax3Clouds);
-		UnloadTexture(FloorGame);
-	}
-
 	void DrawGame()
 	{
 		DrawTextureEx(BackgroundGame, BackgroundPos, 0, 1, WHITE);
