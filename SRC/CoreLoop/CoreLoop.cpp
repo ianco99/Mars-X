@@ -27,7 +27,7 @@ namespace OkamiIndustries
 	Texture2D buttonSprite;
 
 	int SelectScene = 0;
-	int SetScene = 0;
+	CoreScreens SetScene = CoreScreens::MainMenu;
 	Rectangle Mouse;
 	Vector2 MouseOrigin = { 0,0 };
 
@@ -47,30 +47,30 @@ namespace OkamiIndustries
 
 			switch (SetScene)
 			{
-			case 0:
+			case CoreScreens::MainMenu:
 			{
 				MenuLoop();
 				break;
 			}
 
-			case 1:
+			case CoreScreens::Play1P:
 			{
 				GameLoop(true);
 				break;
 			}
-			case 2:
+			case CoreScreens::Play2P:
 			{
 				GameLoop(false);
 				break;
 			}
-			case 3:
+			case CoreScreens::CreditsMenu:
 			{
 				CreditsLoop();
 				break;
 			}
 			default:
 
-				SetScene = 1;
+				SetScene = CoreScreens::Play1P;
 				break;
 			}
 
@@ -80,31 +80,30 @@ namespace OkamiIndustries
 
 			switch (SetScene)
 			{
-			case 0:
+			case CoreScreens::MainMenu:
 			{
 				DrawMenu();
 				break;
 			}
 
-			case 1:
-			case 2:
+			case CoreScreens::Play1P:
+			case CoreScreens::Play2P:
 			{
 				DrawGame();
 				break;
 			}
-			case 3:
+			case CoreScreens::CreditsMenu:
 			{
 				DrawCredits();
 				break;
 			}
-			case 4:
+			case CoreScreens::Quit:
 			{
 				stillRunning = false;
 				break;
 			}
 
 			default:
-				//SetScene = 1;
 				break;
 			}
 

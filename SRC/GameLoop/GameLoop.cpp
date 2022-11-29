@@ -3,6 +3,7 @@
 #include "Explorer/Explorer.h"
 #include "Obstacles/Obstacles.h"
 #include "Martians/UFO.h"
+#include "CoreLoop/CoreLoop.h"
 #include "Explorer/Bullets/Bullets.h"
 #include <iostream>
 
@@ -10,7 +11,7 @@
 namespace OkamiIndustries
 {
 
-	extern int SetScene;
+	extern CoreScreens SetScene;
 
 	extern Texture2D BackgroundGame;
 	extern Texture2D Parallax1Mountains;
@@ -84,7 +85,7 @@ namespace OkamiIndustries
 
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
-			SetScene = 0;
+			SetScene = CoreScreens::MainMenu;
 			isLive1 = false;
 			isLive2 = false;
 			isPlaying = false;

@@ -7,7 +7,7 @@ namespace OkamiIndustries
 	const int maxButtons = 4;
 	float ButtonRotation = 0;
 	extern int SelectScene;
-	extern int SetScene;
+	extern CoreScreens SetScene;
 	extern bool stillRunning;
 	button Button[maxButtons];
 	Vector2 originButton[maxButtons];
@@ -48,7 +48,7 @@ namespace OkamiIndustries
 				SelectScene = i;
 				if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
 				{
-					SetScene = SelectScene + 1;
+					SetScene = static_cast<CoreScreens>(SelectScene + 1);
 				}
 			}
 		}

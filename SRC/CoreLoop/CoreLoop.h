@@ -3,6 +3,8 @@
 
 namespace OkamiIndustries
 {
+	enum class CoreScreens{MainMenu, Play1P, Play2P, CreditsMenu, Quit};
+
 	struct Circle
 	{
 		Vector2 Position;

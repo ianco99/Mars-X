@@ -1,13 +1,14 @@
 #include "raylib.h"
 #include "CreditsLoop.h"
 #include "MenuLoop/MenuLoop.h"
+#include "CoreLoop/CoreLoop.h"
 
 namespace OkamiIndustries
 {
 	float creditsButtonRotation = 0;
 	const int maxButtons = 3;
 	extern int SelectScene;
-	extern int SetScene;
+	extern CoreScreens SetScene;
 	extern bool stillRunning;
 
 	bool hoverBackButton;
@@ -41,7 +42,7 @@ namespace OkamiIndustries
 	{
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
-			SetScene = 0;
+			SetScene = CoreScreens::MainMenu;
 		}
 
 		for (int i = 0; i < maxButtons; i++)
@@ -53,7 +54,7 @@ namespace OkamiIndustries
 				if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
 				{
 					if (i == 0)
-						SetScene = 0;
+						SetScene = CoreScreens::MainMenu;
 
 
 				}
