@@ -1,9 +1,9 @@
 #include "GameLoop.h"
 #include "raylib.h"
-#include "../Explorer/Explorer.h"
-#include "../Obstacles/Obstacles.h"
-#include "../Martians/UFO.h"
-#include "../Explorer/Bullets/Bullets.h"
+#include "Explorer/Explorer.h"
+#include "Obstacles/Obstacles.h"
+#include "Martians/UFO.h"
+#include "Explorer/Bullets/Bullets.h"
 #include <iostream>
 
 

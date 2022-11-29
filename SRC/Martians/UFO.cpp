@@ -1,8 +1,8 @@
 #include "UFO.h"
 #include <cmath>
 #include "raylib.h"
-#include "../GameLoop/GameLoop.h"
-#include "../CoreLoop/CoreLoop.h"
+#include "GameLoop/GameLoop.h"
+#include "CoreLoop/CoreLoop.h"
 
 
 

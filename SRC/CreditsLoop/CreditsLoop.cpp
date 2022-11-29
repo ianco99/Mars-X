@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include "CreditsLoop.h"
-#include "../MenuLoop/MenuLoop.h"
+#include "MenuLoop/MenuLoop.h"
 
 namespace OkamiIndustries
 {

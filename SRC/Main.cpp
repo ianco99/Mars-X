@@ -1,4 +1,4 @@
-#include "../CoreLoop/CoreLoop.h"
+#include "CoreLoop/CoreLoop.h"
 
 int main()
 {

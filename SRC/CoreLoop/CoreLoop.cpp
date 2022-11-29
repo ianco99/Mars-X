@@ -1,12 +1,12 @@
 #include "CoreLoop.h"
 #include "raylib.h"
-#include "../Explorer/Explorer.h"
-#include "../Obstacles/Obstacles.h"
-#include "../MenuLoop/MenuLoop.h"
-#include "../CreditsLoop/CreditsLoop.h"
-#include "../GameLoop/GameLoop.h"
-#include "../Martians/UFO.h"
-#include "../Explorer/Bullets/Bullets.h"
+#include "Explorer/Explorer.h"
+#include "Obstacles/Obstacles.h"
+#include "MenuLoop/MenuLoop.h"
+#include "CreditsLoop/CreditsLoop.h"
+#include "GameLoop/GameLoop.h"
+#include "Martians/UFO.h"
+#include "Explorer/Bullets/Bullets.h"
 
 
 namespace OkamiIndustries
@@ -69,6 +69,7 @@ namespace OkamiIndustries
 				break;
 			}
 			default:
+
 				SetScene = 1;
 				break;
 			}
@@ -99,8 +100,8 @@ namespace OkamiIndustries
 			case 4:
 			{
 				stillRunning = false;
+				break;
 			}
-			break;
 
 			default:
 				//SetScene = 1;
@@ -121,7 +122,7 @@ namespace OkamiIndustries
 	bool CheckCollision(Rectangle rec1, Rectangle rec2)
 	{
 		if (rec1.x < rec2.x + rec2.width &&
-			rec1.x + rec1.width > rec2.x &&
+			rec1.x + rec1.width > rec2.x&&
 			rec1.y < rec2.y + rec2.height &&
 			rec1.height + rec1.y > rec2.y)
 		{

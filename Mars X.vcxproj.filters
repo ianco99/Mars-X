@@ -4,9 +4,6 @@
     <Filter Include="SRC">
       <UniqueIdentifier>{5a447657-0c2c-4ca2-a742-f29357f821b0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SRC\Main">
-      <UniqueIdentifier>{aa06b80b-66c2-43b1-856e-5cd1209fd93b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SRC\CoreLoop">
       <UniqueIdentifier>{4cc0bbf0-29d6-455b-a18e-a55608c8a1e1}</UniqueIdentifier>
     </Filter>
@@ -33,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SRC\Main\Main.cpp">
-      <Filter>SRC\Main</Filter>
-    </ClCompile>
     <ClCompile Include="SRC\CoreLoop\CoreLoop.cpp">
       <Filter>SRC\CoreLoop</Filter>
     </ClCompile>
@@ -60,6 +54,7 @@
     <ClCompile Include="SRC\CreditsLoop\CreditsLoop.cpp">
       <Filter>SRC\CreditsLoop</Filter>
     </ClCompile>
+    <ClCompile Include="SRC\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRC\CoreLoop\CoreLoop.h">
