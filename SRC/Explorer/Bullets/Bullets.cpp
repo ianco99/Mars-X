@@ -10,14 +10,20 @@ namespace OkamiIndustries
 	extern Explorer explorer2;
 
 	const int maxAmmo = 100;
+
+	Vector2 bulletErasedPos = { -100, -100 };
+	Vector2 trayectory[maxAmmo];
+	Vector2 trayectory2[maxAmmo];
+
 	Circle bullet[maxAmmo];
 	Circle bullet2[maxAmmo];
+	
 	int currentBullet = 0;
 	int currentBullet2 = 0;
 	bool isBulletTravelling[maxAmmo];
 	bool isBulletTravelling2[maxAmmo];
-	Vector2 trayectory[maxAmmo];
-	Vector2 trayectory2[maxAmmo];
+
+	
 	float bulletAceleration = 1000.0f;
 	float timer = 0;
 	float timer2 = 0;
@@ -28,7 +34,7 @@ namespace OkamiIndustries
 
 		for (int i = 0; i < maxAmmo; i++)
 		{
-			bullet[i] = { Vector2 {-100, -100}, 4 };
+			bullet[i] = { bulletErasedPos, 4 };
 			isBulletTravelling[i] = false;
 			trayectory[i] = { 0,0 };
 		}
@@ -40,7 +46,7 @@ namespace OkamiIndustries
 
 		for (int i = 0; i < maxAmmo; i++)
 		{
-			bullet2[i] = { Vector2 {-100, -100}, 4 };
+			bullet2[i] = { bulletErasedPos, 4 };
 			isBulletTravelling2[i] = false;
 			trayectory2[i] = { 0,0 };
 		}
@@ -87,8 +93,7 @@ namespace OkamiIndustries
 				if (bullet[i].Position.y < 0)
 				{
 					isBulletTravelling[i] = false;
-					bullet[i].Position.x = -100;
-					bullet[i].Position.y = -100;
+					bullet[i].Position = bulletErasedPos;
 				}
 			}
 		}
@@ -134,8 +139,7 @@ namespace OkamiIndustries
 				if (bullet2[i].Position.y < 0)
 				{
 					isBulletTravelling2[i] = false;
-					bullet2[i].Position.x = -100;
-					bullet2[i].Position.y = -100;
+					bullet2[i].Position = bulletErasedPos;
 				}
 			}
 		}

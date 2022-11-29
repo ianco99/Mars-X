@@ -48,7 +48,7 @@ namespace OkamiIndustries
 				SelectScene = i;
 				if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
 				{
-					SetScene = static_cast<CoreScreens>(SelectScene + 1);
+					SetScene = static_cast<CoreScreens>(SelectScene++);
 				}
 			}
 		}

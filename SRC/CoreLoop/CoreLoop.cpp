@@ -33,7 +33,7 @@ namespace OkamiIndustries
 
 	void CoreLoop()
 	{
-		InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V1.0");
+		InitWindow(screenWidth, screenHeight, "Okami Industries - Mars X - V1.1");
 		SetExitKey(KEY_NULL);
 		HideCursor();
 		InitGame();
@@ -108,7 +108,7 @@ namespace OkamiIndustries
 			}
 
 			DrawMouse();
-			DrawText("V1.0", 30, 30, 20, RAYWHITE);
+			DrawText("V1.1", 30, 30, 20, RAYWHITE);
 
 			EndDrawing();
 
@@ -135,10 +135,13 @@ namespace OkamiIndustries
 
 	static void InitMouse()
 	{
+		int mouseWidth = 5;
+		int mouseHeight = 5;
+
 		Mouse.x = GetMousePosition().x;
 		Mouse.y = GetMousePosition().y;
-		Mouse.width = 5;
-		Mouse.height = 5;
+		Mouse.width = mouseWidth;
+		Mouse.height = mouseHeight;
 	}
 
 	static void UpdateMouse()
