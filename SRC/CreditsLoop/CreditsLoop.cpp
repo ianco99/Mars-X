@@ -24,7 +24,6 @@ namespace OkamiIndustries
 
 		//Background art hyperlink
 		creditsButton[1].body = { static_cast<float>(GetScreenWidth() / 5 - static_cast<float>(MeasureText("ansimuz", 36)),  (static_cast<float>(GetScreenHeight()) / 8) * 5 + 50 , static_cast<float>(MeasureTextEx(GetFontDefault(),"ansimuz", 36,0).x, static_cast<float>(MeasureTextEx(GetFontDefault(),"ansimuz", 36,0).y))) };
-			//static_cast<int>(GetScreenWidth()) / 5 - static_cast<int>(MeasureText("ansimuz", 36)) / 2, (static_cast<int>(GetScreenHeight()) / 8) * 5 + 50
 	}
 
 	void InitBackButton()
@@ -94,13 +93,11 @@ namespace OkamiIndustries
 		{
 			DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0].body, creditsOriginButton[0], creditsButtonRotation, BEIGE);
 			DrawText(TextFormat(creditsButton[0].text), static_cast<int>(creditsButton[0].body.x + creditsButton[0].body.width / 2 - MeasureTextEx(GetFontDefault(), creditsButton[0].text, 42, 0).x / 2), static_cast<int>(creditsButton[0].body.y + MeasureTextEx(GetFontDefault(), "BACK", 42, 0).y / 2), 42, WHITE);
-			//DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RED);
 		}
 		else
 		{
 			DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0].body, creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
 			DrawText(TextFormat(creditsButton[0].text), static_cast<int>(creditsButton[0].body.x + creditsButton[0].body.width / 2 - MeasureTextEx(GetFontDefault(), creditsButton[0].text, 42, 0).x / 2), static_cast<int>(creditsButton[0].body.y + MeasureTextEx(GetFontDefault(), "BACK", 42, 0).y / 2), 42, WHITE);
-			//DrawRectanglePro(creditsButton[0], creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
 		}
 
 

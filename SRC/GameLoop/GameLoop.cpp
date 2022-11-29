@@ -37,7 +37,7 @@ namespace OkamiIndustries
 
 	void GameLoop(bool singlePlayer)
 	{
-		if (!isPlaying && !hasLost)	//Inits
+		if (!isPlaying && !hasLost)	
 		{
 			isPlaying = true;
 			isLive1 = true;
@@ -111,15 +111,6 @@ namespace OkamiIndustries
 		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[3], { 0,0 }, 0, WHITE);
 		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[7], { 0,0 }, 0, WHITE);
 
-
-		//DrawTextureEx(Parallax1Mountains, Parallax1pos, 0, 1, WHITE);
-		//DrawTextureEx(Parallax1Mountains, Parallax1pos2, 0, 1, WHITE);
-		//DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
-		//DrawTextureEx(Parallax2Clouds, Parallax2pos, 0, 1, WHITE);
-		//DrawTextureEx(Parallax3Clouds, Parallax3pos, 0, 1, WHITE);
-		//DrawTextureEx(Parallax3Clouds, Parallax3pos2, 0, 1, WHITE);
-		//DrawTextureEx(FloorGame, Floorpos, 0, 1, WHITE);
-		//DrawTextureEx(FloorGame, Floorpos2, 0, 1, WHITE);
 		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 40, WHITE);
 
 		if (isLive1)
@@ -162,7 +153,6 @@ namespace OkamiIndustries
 
 	void InitBackground()
 	{
-		//background = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
 
 		for (int i = 0; i < 4; i++)
 		{
@@ -173,29 +163,10 @@ namespace OkamiIndustries
 		{
 			backgroundImages[i] = { static_cast<float>(GetScreenWidth()),0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
 		}
-
-		//BackgroundPos = { 0,0 };
-		//Parallax1pos = { 0,0 };
-		//Parallax1pos2 = { static_cast<float>(GetScreenWidth()),0 };
-		//Parallax2pos = { 0,0 };
-		//Parallax2pos2 = { static_cast<float>(GetScreenWidth()),0 };
-		//Parallax3pos = { 0,0 };
-		//Parallax3pos2 = { static_cast<float>(GetScreenWidth()),0 };
-		//Floorpos = { 0,0 };
-		//Floorpos2 = { static_cast<float>(GetScreenWidth()),0 };
 	}
 
 	static void updateBackground()
 	{
-		//Parallax1pos.x -= 200 * GetFrameTime();
-		//Parallax1pos2.x -= 200 * GetFrameTime();
-		//Parallax2pos.x -= 400 * GetFrameTime();
-		//Parallax2pos2.x -= 400 * GetFrameTime();
-		//Parallax3pos.x -= 600 * GetFrameTime();
-		//Parallax3pos2.x -= 600 * GetFrameTime();
-		//Floorpos.x -= 800 * GetFrameTime();
-		//Floorpos2.x -= 800 * GetFrameTime();
-
 
 
 		backgroundImages[0].x -= 200 * GetFrameTime();
@@ -218,47 +189,5 @@ namespace OkamiIndustries
 					backgroundImages[i].x = backgroundImages[i - 4].x + backgroundImages[i - 4].width;
 			}
 		}
-
-		//if (Parallax2pos.x < 0)
-		//{
-		//	Parallax1pos.x = static_cast<float>(GetScreenWidth());
-		//	Parallax2pos.x = static_cast<float>(GetScreenWidth() * 2);
-		//}
-
-		//if (Parallax1pos2.x < -static_cast<float>(GetScreenWidth()))
-		//{
-		//	Parallax1pos2.x = static_cast<float>(GetScreenWidth());
-		//}
-
-		//if (Parallax2pos.x < -static_cast<float>(GetScreenWidth()))
-		//{
-		//	Parallax2pos.x = static_cast<float>(GetScreenWidth());
-		//}
-
-		//if (Parallax2pos2.x < -static_cast<float>(GetScreenWidth()))
-		//{
-		//	Parallax2pos2.x = static_cast<float>(GetScreenWidth());
-		//}
-
-		//if (Parallax3pos.x < -static_cast<float>(GetScreenWidth()))
-		//{
-		//	Parallax3pos.x = static_cast<float>(GetScreenWidth());
-		//}
-
-		//if (Parallax3pos2.x < -static_cast<float>(GetScreenWidth()))
-		//{
-		//	Parallax3pos2.x = static_cast<float>(GetScreenWidth());
-		//}
-
-		//if (Floorpos.x < -static_cast<float>(GetScreenWidth()))
-		//{
-		//	Floorpos.x = static_cast<float>(GetScreenWidth());
-		//}
-
-		//if (Floorpos2.x < -static_cast<float>(GetScreenWidth()))
-		//{
-		//	Floorpos2.x = static_cast<float>(GetScreenWidth());
-		//}
-
 	}
 }

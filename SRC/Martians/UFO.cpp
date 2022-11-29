@@ -99,7 +99,6 @@ namespace OkamiIndustries
         for (int i = 0; i < maxUFOs; i++)
         {
             DrawTexturePro(ufoSprite, { 0,0, static_cast<float>(ufoSprite.width), static_cast<float>(ufoSprite.height) }, UFOs[i], { 0,0 }, 0.0f, RAYWHITE);
-            //DrawRectangle(static_cast <int>(UFOs[i].x), static_cast <int>(UFOs[i].y), static_cast <int>(UFOs[i].width), static_cast <int>(UFOs[i].height), SKYBLUE);
         }
 	}
 

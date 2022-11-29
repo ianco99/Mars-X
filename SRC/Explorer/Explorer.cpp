@@ -108,7 +108,6 @@ namespace OkamiIndustries
 			if (CheckCollision(Obstacles[i], explorer1.body) && isLive1)
 			{
 				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer1.body, { 0,0 }, 0, explorer1.color);
-				//DrawRectanglePro(explorer1.body, explorer1.bodyOrigin, explorerRotation, RED);
 				isLive1 = false;
 
 				if (!isLive2)
@@ -118,7 +117,6 @@ namespace OkamiIndustries
 			else
 			{
 				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer1.body, { 0,0 }, 0, explorer1.color);
-				//DrawRectanglePro(explorer1.body, explorer1.bodyOrigin, explorerRotation, RAYWHITE);
 			}
 
 		}
@@ -131,7 +129,6 @@ namespace OkamiIndustries
 			if (CheckCollision(Obstacles[i], explorer2.body) && isLive2)
 			{
 				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer2.body, { 0,0 }, 0, explorer2.color);
-				//DrawRectanglePro(explorer2.body, explorer2.bodyOrigin, explorerRotation, RED);
 				isLive2 = false;
 				
 				if (!isLive1)
@@ -141,7 +138,6 @@ namespace OkamiIndustries
 			else
 			{
 				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer2.body, { 0,0 }, 0, explorer2.color);
-				//DrawRectanglePro(explorer2.body, explorer2.bodyOrigin, explorerRotation, RAYWHITE);
 			}
 
 		}
