@@ -1,6 +1,6 @@
-#include "Explorer.h"
-#include "raylib.h"
-#include "CoreLoop/CoreLoop.h"
+#include "explorer.h"
+
+#include "CoreLoop/core_loop.h"
 
 namespace OkamiIndustries
 {

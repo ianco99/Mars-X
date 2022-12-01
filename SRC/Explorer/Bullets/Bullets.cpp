@@ -1,8 +1,11 @@
+#include "bullets.h"
+
 #include <cmath>
-#include "Bullets.h"
+
 #include "raylib.h"
-#include "CoreLoop/CoreLoop.h"
-#include "Explorer/Explorer.h"
+
+#include "CoreLoop/core_loop.h"
+#include "Explorer/explorer.h"
 
 namespace OkamiIndustries
 {

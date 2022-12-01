@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+
 namespace OkamiIndustries
 {
 	struct Explorer

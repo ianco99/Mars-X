@@ -1,11 +1,12 @@
 #include "game_loop.h"
-#include "raylib.h"
+
+#include <iostream>
+
 #include "Explorer/explorer.h"
 #include "Obstacles/obstacles.h"
 #include "Martians/ufo.h"
 #include "CoreLoop/core_loop.h"
 #include "Explorer/Bullets/bullets.h"
-#include <iostream>
 
 
 namespace OkamiIndustries

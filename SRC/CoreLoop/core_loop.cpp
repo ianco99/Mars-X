@@ -1,5 +1,5 @@
-#include "raylib.h"
 #include "core_loop.h"
+
 #include "MenuLoop/menu_loop.h"
 #include "CreditsLoop/credits_loop.h"
 #include "GameLoop/game_loop.h"
@@ -116,6 +116,22 @@ namespace OkamiIndustries
 		CloseWindow();
 	}
 
+	void InitMouse()
+	{
+		int mouseWidth = 5;
+		int mouseHeight = 5;
+
+		Mouse.x = GetMousePosition().x;
+		Mouse.y = GetMousePosition().y;
+		Mouse.width = static_cast<float>(mouseWidth);
+		Mouse.height = static_cast<float>(mouseHeight);
+	}
+
+	void UpdateMouse()
+	{
+		Mouse.x = GetMousePosition().x;
+		Mouse.y = GetMousePosition().y;
+	}
 
 	bool CheckCollision(Rectangle rec1, Rectangle rec2)
 	{
@@ -132,24 +148,7 @@ namespace OkamiIndustries
 		}
 	}
 
-	static void InitMouse()
-	{
-		int mouseWidth = 5;
-		int mouseHeight = 5;
-
-		Mouse.x = GetMousePosition().x;
-		Mouse.y = GetMousePosition().y;
-		Mouse.width = static_cast<float>(mouseWidth);
-		Mouse.height = static_cast<float>(mouseHeight);
-	}
-
-	static void UpdateMouse()
-	{
-		Mouse.x = GetMousePosition().x;
-		Mouse.y = GetMousePosition().y;
-	}
-
-	static void DrawMouse()
+	void DrawMouse()
 	{
 		DrawRectanglePro(Mouse, MouseOrigin, 0, YELLOW);
 	}

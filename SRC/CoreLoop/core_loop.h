@@ -12,9 +12,8 @@ namespace OkamiIndustries
 	};
 
 	void CoreLoop();
+	void InitMouse();
+	void UpdateMouse();
 	bool CheckCollision(Rectangle rec1, Rectangle rec2);
-	static void InitMouse();
-	static void UpdateMouse();
-	static void DrawMouse();
-	static void InitAssets();
+	void DrawMouse();
 }

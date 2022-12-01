@@ -2,9 +2,8 @@
 
 namespace OkamiIndustries
 {
-	void CreditsLoop();
-	void DrawCredits();
 	void InitCredits();
 
-	void InitBackButton();
+	void CreditsLoop();
+	void DrawCredits();
 }

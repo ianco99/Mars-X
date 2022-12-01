@@ -1,8 +1,11 @@
 #include "obstacles.h"
+
+#include <iostream>
+
 #include "raylib.h"
+
 #include "CoreLoop/core_loop.h"
 #include "Explorer/explorer.h"
-#include <iostream>
 
 namespace OkamiIndustries
 {
@@ -11,20 +14,20 @@ namespace OkamiIndustries
 	const int distanceRandRangeMax = 1000;
 	const int distanceRandRangeMin = 700;
 
-	int speed = -300;
-	Rectangle Obstacles[maxObstacles];
-	Vector2 ObstaclesOrigin[maxObstacles]; 
-	float ObstaclesRotation = 0;
-
-	extern Texture2D obstacleSprite;
-
 	extern Explorer explorer1;
 	extern Explorer explorer2;
 
+	extern Texture2D obstacleSprite;
+
 	extern bool isLive1;
 	extern bool isLive2;
-
 	extern int score;
+
+	Rectangle Obstacles[maxObstacles];
+	Vector2 ObstaclesOrigin[maxObstacles]; 
+	
+	int speed = -300;
+	float ObstaclesRotation = 0;
 
 	void InitObstacles()
 	{

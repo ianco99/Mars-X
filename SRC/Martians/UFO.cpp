@@ -1,10 +1,11 @@
-#include "UFO.h"
+#include "ufo.h"
+
 #include <cmath>
+
 #include "raylib.h"
-#include "GameLoop/GameLoop.h"
-#include "CoreLoop/CoreLoop.h"
 
-
+#include "GameLoop/game_loop.h"
+#include "CoreLoop/core_loop.h"
 
 namespace OkamiIndustries
 {

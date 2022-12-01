@@ -1,5 +1,7 @@
 #include "menu_loop.h"
+
 #include "raylib.h"
+
 #include "CoreLoop/core_loop.h"
 
 namespace OkamiIndustries
