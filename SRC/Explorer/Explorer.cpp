@@ -4,31 +4,29 @@
 
 namespace OkamiIndustries
 {
+	extern Rectangle Obstacles[maxObstacles];
+	extern Texture2D playerSprite;
+	
+	extern const int maxObstacles = 3;
+	
+	extern bool singlePlayer;
+	extern bool hasLost;
+
+	const int explorerOffset = 75;
+
 	Explorer explorer1;
 	Explorer explorer2;
 
 	Vector2 explorerOrigin = { explorer1.body.width / 2, explorer1.body.height / 2 };
 
-	const int explorerOffset = 75;
-
 	float explorerRotation = 0;
 	float gravity1 = 500;
 	float gravity2 = 500;
-
 	bool isLive1 = false;
 	bool isLive2 = false;
 
-	extern bool singlePlayer;
-	extern bool hasLost;
-
-	extern const int maxObstacles = 3;
-	extern Rectangle Obstacles[maxObstacles];
-
-	extern Texture2D playerSprite;
-
 	void InitExplorer1()
 	{
-
 		explorer1.color = RAYWHITE;
 
 		explorer1.body.width = 50;
