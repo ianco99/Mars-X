@@ -23,7 +23,7 @@ namespace OkamiIndustries
 	Texture2D obstacleSprite;
 	Texture2D ufoSprite;
 
-	Rectangle backgroundImages[8];
+	BackgroundImage backgroundImages[8];
 
 	Vector2 BackgroundPos = { 0,0 };
 
@@ -102,14 +102,14 @@ namespace OkamiIndustries
 	{
 		DrawTextureEx(BackgroundGame, BackgroundPos, 0, 1, WHITE);
 
-		DrawTexturePro(Parallax1Mountains, { 0,0, static_cast<float>(Parallax1Mountains.width), static_cast<float>(Parallax1Mountains.height) }, backgroundImages[0], { 0,0 }, 0, WHITE);
-		DrawTexturePro(Parallax1Mountains, { 0,0, static_cast<float>(Parallax1Mountains.width), static_cast<float>(Parallax1Mountains.height) }, backgroundImages[4], { 0,0 }, 0, WHITE);
-		DrawTexturePro(Parallax2Clouds, { 0,0, static_cast<float>(Parallax2Clouds.width), static_cast<float>(Parallax2Clouds.height) }, backgroundImages[1], { 0,0 }, 0, WHITE);
-		DrawTexturePro(Parallax2Clouds, { 0,0, static_cast<float>(Parallax2Clouds.width), static_cast<float>(Parallax2Clouds.height) }, backgroundImages[5], { 0,0 }, 0, WHITE);
-		DrawTexturePro(Parallax3Clouds, { 0,0, static_cast<float>(Parallax3Clouds.width), static_cast<float>(Parallax3Clouds.height) }, backgroundImages[2], { 0,0 }, 0, WHITE);
-		DrawTexturePro(Parallax3Clouds, { 0,0, static_cast<float>(Parallax3Clouds.width), static_cast<float>(Parallax3Clouds.height) }, backgroundImages[6], { 0,0 }, 0, WHITE);
-		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[3], { 0,0 }, 0, WHITE);
-		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[7], { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax1Mountains, { 0,0, static_cast<float>(Parallax1Mountains.width), static_cast<float>(Parallax1Mountains.height) }, backgroundImages[0].body, { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax1Mountains, { 0,0, static_cast<float>(Parallax1Mountains.width), static_cast<float>(Parallax1Mountains.height) }, backgroundImages[4].body, { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax2Clouds, { 0,0, static_cast<float>(Parallax2Clouds.width), static_cast<float>(Parallax2Clouds.height) }, backgroundImages[1].body, { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax2Clouds, { 0,0, static_cast<float>(Parallax2Clouds.width), static_cast<float>(Parallax2Clouds.height) }, backgroundImages[5].body, { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax3Clouds, { 0,0, static_cast<float>(Parallax3Clouds.width), static_cast<float>(Parallax3Clouds.height) }, backgroundImages[2].body, { 0,0 }, 0, WHITE);
+		DrawTexturePro(Parallax3Clouds, { 0,0, static_cast<float>(Parallax3Clouds.width), static_cast<float>(Parallax3Clouds.height) }, backgroundImages[6].body, { 0,0 }, 0, WHITE);
+		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[3].body, { 0,0 }, 0, WHITE);
+		DrawTexturePro(FloorGame, { 0,0, static_cast<float>(FloorGame.width), static_cast<float>(FloorGame.height) }, backgroundImages[7].body, { 0,0 }, 0, WHITE);
 
 		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 40, WHITE);
 
@@ -153,40 +153,38 @@ namespace OkamiIndustries
 
 	void InitBackground()
 	{
-
+		int counter = 1;
 		for (int i = 0; i < 4; i++)
 		{
-			backgroundImages[i] = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+			backgroundImages[i].body = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+			backgroundImages[i].speed = 200 * counter;
+			counter++;
 		}
-
+		counter = 1;
 		for (int i = 4; i < 8; i++)
 		{
-			backgroundImages[i] = { static_cast<float>(GetScreenWidth()),0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+			backgroundImages[i].body = { static_cast<float>(GetScreenWidth()),0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+			backgroundImages[i].speed = 200 * counter;
+			counter++;
 		}
 	}
 
 	static void updateBackground()
 	{
 
-
-		backgroundImages[0].x -= 200 * GetFrameTime();
-		backgroundImages[1].x -= 400 * GetFrameTime();
-		backgroundImages[2].x -= 600 * GetFrameTime();
-		backgroundImages[3].x -= 800 * GetFrameTime();
-
-		backgroundImages[4].x -= 200 * GetFrameTime();
-		backgroundImages[5].x -= 400 * GetFrameTime();
-		backgroundImages[6].x -= 600 * GetFrameTime();
-		backgroundImages[7].x -= 800 * GetFrameTime();
+		for (int i = 0; i < 8; i++)
+		{
+			backgroundImages[i].body.x -= backgroundImages[i].speed * GetFrameTime();
+		}
 
 		for (int i = 0; i < 8; i++)
 		{
-			if (backgroundImages[i].x + backgroundImages[i].width <= 0)
+			if (backgroundImages[i].body.x + backgroundImages[i].body.width <= 0)
 			{
 				if (i < 4)
-					backgroundImages[i].x = backgroundImages[i + 4].x + backgroundImages[i + 4].width;
+					backgroundImages[i].body.x = backgroundImages[i + 4].body.x + backgroundImages[i + 4].body.width;
 				else
-					backgroundImages[i].x = backgroundImages[i - 4].x + backgroundImages[i - 4].width;
+					backgroundImages[i].body.x = backgroundImages[i - 4].body.x + backgroundImages[i - 4].body.width;
 			}
 		}
 	}

@@ -140,8 +140,8 @@ namespace OkamiIndustries
 
 		Mouse.x = GetMousePosition().x;
 		Mouse.y = GetMousePosition().y;
-		Mouse.width = mouseWidth;
-		Mouse.height = mouseHeight;
+		Mouse.width = static_cast<float>(mouseWidth);
+		Mouse.height = static_cast<float>(mouseHeight);
 	}
 
 	static void UpdateMouse()
