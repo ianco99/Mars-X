@@ -43,7 +43,6 @@ namespace OkamiIndustries
 		if (!isPlaying && !hasLost)	
 		{
 			isPlaying = true;
-			isLive1 = true;
 			InitExplorer(explorer1, 0);
 			InitObstacles();
 			InitBullets();
@@ -53,7 +52,6 @@ namespace OkamiIndustries
 
 			if (!singlePlayer)
 			{
-				isLive2 = true;
 				InitExplorer(explorer2, 1);
 				InitBullets2();
 			}
@@ -64,21 +62,21 @@ namespace OkamiIndustries
 			updateBackground();
 			MoveObstacles();
 			MoveUFO();
-			if (isLive1)
+			if (explorer1.isAlive)
 			{
 				MoveExplorer(explorer1);
 				ShootExplorer();
 			}
 			if (!singlePlayer)
 			{
-				if (isLive2)
+				if (explorer2.isAlive)
 				{
 					MoveExplorer(explorer2);
 					ShootExplorer2();
 				}
 			}
 
-			if (!isLive1 && !isLive2)
+			if (!explorer1.isAlive && !explorer2.isAlive)
 			{
 				hasLost = true;
 				isPlaying = false;
@@ -90,8 +88,8 @@ namespace OkamiIndustries
 		if (IsKeyPressed(KEY_ESCAPE))
 		{
 			SetScene = CoreScreens::MainMenu;
-			isLive1 = false;
-			isLive2 = false;
+			explorer1.isAlive = false;
+			explorer2.isAlive = false;
 			isPlaying = false;
 			hasLost = false;
 
@@ -117,13 +115,13 @@ namespace OkamiIndustries
 
 		DrawText(TextFormat("Score: %i", score * 100), (GetScreenWidth() / 4) * 3, 30, 40, WHITE);
 
-		if (isLive1)
+		if (explorer1.isAlive)
 		{
 			DrawExplorer(explorer1);
 			DrawBullets();
 		}
 
-		if (isLive2)
+		if (explorer2.isAlive)
 		{
 			DrawExplorer(explorer2);
 			DrawBullets2();

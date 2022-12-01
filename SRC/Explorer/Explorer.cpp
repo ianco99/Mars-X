@@ -23,6 +23,8 @@ namespace OkamiIndustries
 
 	void InitExplorer(Explorer& explorer, int id)
 	{
+		explorer.isAlive = true;
+
 		if (id == 0)
 			explorer.color = RAYWHITE;
 		else if (id == 1)
@@ -89,14 +91,14 @@ namespace OkamiIndustries
 		{
 			if (CheckCollision(Obstacles[i], explorer.body) && explorer.isAlive)
 			{
-				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer.body, { 0,0 }, 0, explorer.color);
+				//DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer.body, { 0,0 }, 0, explorer.color);
 				explorer.isAlive = false;
 
 				//if (!isLive2)
 				//	hasLost = true;
 				break;
 			}
-			else
+			else if(explorer.isAlive)
 			{
 				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer.body, { 0,0 }, 0, explorer.color);
 			}
