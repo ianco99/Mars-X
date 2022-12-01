@@ -10,13 +10,15 @@ namespace OkamiIndustries
 
 		Color color;
 
+		bool isAlive;
 		float rotation;
 		float acceleration;
 		float currentGravity;
+		int id;
 	};
 
 	void InitExplorer(Explorer& explorer, int id);
 	void MoveExplorer(Explorer& explorer); 
-	void DrawExplorer(); 
-	void DrawExplorer2();
+	void DrawExplorer(Explorer& explorer); 
+	//void DrawExplorer2();
 }

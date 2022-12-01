@@ -80,6 +80,7 @@ namespace OkamiIndustries
 
 			if (!isLive1 && !isLive2)
 			{
+				hasLost = true;
 				isPlaying = false;
 			}
 
@@ -118,13 +119,13 @@ namespace OkamiIndustries
 
 		if (isLive1)
 		{
-			DrawExplorer();
+			DrawExplorer(explorer1);
 			DrawBullets();
 		}
 
 		if (isLive2)
 		{
-			DrawExplorer2();
+			DrawExplorer(explorer2);
 			DrawBullets2();
 		}
 
