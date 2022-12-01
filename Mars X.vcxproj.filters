@@ -30,55 +30,55 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SRC\CoreLoop\CoreLoop.cpp">
+    <ClCompile Include="SRC\CoreLoop\core_loop.cpp">
       <Filter>SRC\CoreLoop</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\Explorer\Explorer.cpp">
+    <ClCompile Include="SRC\Explorer\explorer.cpp">
       <Filter>SRC\Explorer</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\Obstacles\Obstacles.cpp">
+    <ClCompile Include="SRC\Obstacles\obstacles.cpp">
       <Filter>SRC\Obstacles</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\MenuLoop\MenuLoop.cpp">
+    <ClCompile Include="SRC\MenuLoop\menu_loop.cpp">
       <Filter>SRC\MenuLoop</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\GameLoop\GameLoop.cpp">
+    <ClCompile Include="SRC\GameLoop\game_loop.cpp">
       <Filter>SRC\GameLoop</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\Martians\UFO.cpp">
+    <ClCompile Include="SRC\Martians\ufo.cpp">
       <Filter>SRC\Martians</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\Explorer\Bullets\Bullets.cpp">
+    <ClCompile Include="SRC\Explorer\Bullets\bullets.cpp">
       <Filter>SRC\Explorer\Bullets</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\CreditsLoop\CreditsLoop.cpp">
+    <ClCompile Include="SRC\CreditsLoop\credits_loop.cpp">
       <Filter>SRC\CreditsLoop</Filter>
     </ClCompile>
-    <ClCompile Include="SRC\Main.cpp" />
+    <ClCompile Include="SRC\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SRC\CoreLoop\CoreLoop.h">
+    <ClInclude Include="SRC\CoreLoop\core_loop.h">
       <Filter>SRC\CoreLoop</Filter>
     </ClInclude>
-    <ClInclude Include="SRC\Explorer\Explorer.h">
+    <ClInclude Include="SRC\Explorer\explorer.h">
       <Filter>SRC\Explorer</Filter>
     </ClInclude>
-    <ClInclude Include="SRC\Obstacles\Obstacles.h">
+    <ClInclude Include="SRC\Obstacles\obstacles.h">
       <Filter>SRC\Obstacles</Filter>
     </ClInclude>
-    <ClInclude Include="SRC\MenuLoop\MenuLoop.h">
+    <ClInclude Include="SRC\MenuLoop\menu_loop.h">
       <Filter>SRC\MenuLoop</Filter>
     </ClInclude>
-    <ClInclude Include="SRC\GameLoop\GameLoop.h">
+    <ClInclude Include="SRC\GameLoop\game_loop.h">
       <Filter>SRC\GameLoop</Filter>
     </ClInclude>
-    <ClInclude Include="SRC\Martians\UFO.h">
+    <ClInclude Include="SRC\Martians\ufo.h">
       <Filter>SRC\Martians</Filter>
     </ClInclude>
-    <ClInclude Include="SRC\Explorer\Bullets\Bullets.h">
+    <ClInclude Include="SRC\Explorer\Bullets\bullets.h">
       <Filter>SRC\Explorer\Bullets</Filter>
     </ClInclude>
-    <ClInclude Include="SRC\CreditsLoop\CreditsLoop.h">
+    <ClInclude Include="SRC\CreditsLoop\credits_loop.h">
       <Filter>SRC\CreditsLoop</Filter>
     </ClInclude>
   </ItemGroup>

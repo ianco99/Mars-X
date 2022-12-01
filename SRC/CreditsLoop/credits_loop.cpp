@@ -1,7 +1,7 @@
 #include "raylib.h"
-#include "CreditsLoop.h"
-#include "MenuLoop/MenuLoop.h"
-#include "CoreLoop/CoreLoop.h"
+#include "credits_loop.h"
+#include "MenuLoop/menu_loop.h"
+#include "CoreLoop/core_loop.h"
 
 namespace OkamiIndustries
 {
@@ -11,11 +11,12 @@ namespace OkamiIndustries
 
 	extern int SelectScene;
 	extern bool stillRunning;
+
+	const int maxButtons = 3;
 	
 	button creditsButton[maxButtons];
 	Vector2 creditsOriginButton[maxButtons];
 	
-	const int maxButtons = 3;
 	float creditsButtonRotation = 0;
 	bool hoverBackButton;
 
@@ -55,8 +56,6 @@ namespace OkamiIndustries
 				{
 					if (i == 0)
 						SetScene = CoreScreens::MainMenu;
-
-
 				}
 				break;
 			}
@@ -93,11 +92,11 @@ namespace OkamiIndustries
 		if (hoverBackButton)
 		{
 			DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0].body, creditsOriginButton[0], creditsButtonRotation, BEIGE);
-			DrawText(TextFormat(creditsButton[0].text), static_cast<int>(creditsButton[0].body.x + creditsButton[0].body.width / 2 - MeasureTextEx(GetFontDefault(), creditsButton[0].text, 42, 0).x / 2), static_cast<int>(creditsButton[0].body.y + MeasureTextEx(GetFontDefault(), "BACK", 42, 0).y / 2), 42, WHITE);
+			DrawText(TextFormat(creditsButton[0].text), static_cast<int>(creditsButton[0].body.x + creditsButton[0].body.width / 2 - MeasureTextEx(GetFontDefault(), creditsButton[0].text, 42, 0).x / 2), static_cast<int>(creditsButton[0].body.y + MeasureTextEx(GetFontDefault(), "BACK", 42, 0).y / 2), 42, BEIGE);
 		}
 		else
 		{
-			DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0].body, creditsOriginButton[0], creditsButtonRotation, RAYWHITE);
+			DrawTexturePro(buttonSprite, { 0,0, static_cast<float>(buttonSprite.width), static_cast<float>(buttonSprite.height) }, creditsButton[0].body, creditsOriginButton[0], creditsButtonRotation, WHITE);
 			DrawText(TextFormat(creditsButton[0].text), static_cast<int>(creditsButton[0].body.x + creditsButton[0].body.width / 2 - MeasureTextEx(GetFontDefault(), creditsButton[0].text, 42, 0).x / 2), static_cast<int>(creditsButton[0].body.y + MeasureTextEx(GetFontDefault(), "BACK", 42, 0).y / 2), 42, WHITE);
 		}
 

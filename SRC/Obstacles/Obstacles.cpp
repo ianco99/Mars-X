@@ -1,7 +1,7 @@
-#include "Obstacles.h"
+#include "obstacles.h"
 #include "raylib.h"
-#include "../CoreLoop/CoreLoop.h"
-#include "../Explorer/Explorer.h"
+#include "CoreLoop/core_loop.h"
+#include "Explorer/explorer.h"
 #include <iostream>
 
 namespace OkamiIndustries
