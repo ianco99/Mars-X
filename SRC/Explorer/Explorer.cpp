@@ -39,49 +39,25 @@ namespace OkamiIndustries
 		explorer.body.y = static_cast <float>((GetScreenHeight() / 8) * 7);
 	}
 
-	void MoveExplorer()
+	void MoveExplorer(Explorer& explorer)
 	{
-		explorer1.body.y = explorer1.body.y + gravity1 * GetFrameTime();
+		explorer.body.y = explorer.body.y + explorer.currentGravity * GetFrameTime();
 
-		if (explorer1.body.y > static_cast <float>((GetScreenHeight() / 4) * 3))
+		if (explorer.body.y > static_cast <float>((GetScreenHeight() / 4) * 3))
 		{
-			explorer1.body.y = static_cast <float>((GetScreenHeight() / 4) * 3);
+			explorer.body.y = static_cast <float>((GetScreenHeight() / 4) * 3);
 		}
 
 		if (IsKeyPressed(KEY_W))
 		{
-			if (explorer1.body.y == static_cast <float>((GetScreenHeight() / 4) * 3))
+			if (explorer.body.y == static_cast <float>((GetScreenHeight() / 4) * 3))
 			{
-				gravity1 = -500;
+				explorer.currentGravity = -500;
 			}
 		}
 		else
 		{
-			gravity1 += 500 * GetFrameTime();
-		}
-
-
-	}
-
-	void MoveExplorer2()
-	{
-		explorer2.body.y = explorer2.body.y + gravity2 * GetFrameTime();
-
-		if (explorer2.body.y > static_cast <float>((GetScreenHeight() / 4) * 3))
-		{
-			explorer2.body.y = static_cast <float>((GetScreenHeight() / 4) * 3);
-		}
-
-		if (IsKeyPressed(KEY_UP))
-		{
-			if (explorer2.body.y == static_cast <float>((GetScreenHeight() / 4) * 3))
-			{
-				gravity2 = -500;
-			}
-		}
-		else
-		{
-			gravity2 += 500 * GetFrameTime();
+			explorer.currentGravity += 500 * GetFrameTime();
 		}
 
 

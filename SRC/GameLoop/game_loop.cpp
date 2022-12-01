@@ -66,14 +66,14 @@ namespace OkamiIndustries
 			MoveUFO();
 			if (isLive1)
 			{
-				MoveExplorer();
+				MoveExplorer(explorer1);
 				ShootExplorer();
 			}
 			if (!singlePlayer)
 			{
 				if (isLive2)
 				{
-					MoveExplorer2();
+					MoveExplorer(explorer2);
 					ShootExplorer2();
 				}
 			}
