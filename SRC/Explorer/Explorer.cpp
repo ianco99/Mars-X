@@ -97,11 +97,7 @@ namespace OkamiIndustries
 		{
 			if (CheckCollision(Obstacles[i], explorer.body) && explorer.isAlive)
 			{
-				//DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer.body, { 0,0 }, 0, explorer.color);
 				explorer.isAlive = false;
-
-				//if (!isLive2)
-				//	hasLost = true;
 				break;
 			}
 			else if(explorer.isAlive)
@@ -111,26 +107,4 @@ namespace OkamiIndustries
 
 		}
 	}
-
-	//void DrawExplorer2()
-	//{
-	//	for (int i = 0; i < maxObstacles; i++)
-	//	{
-	//		if (CheckCollision(Obstacles[i], explorer2.body) && isLive2)
-	//		{
-	//			DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer2.body, { 0,0 }, 0, explorer2.color);
-	//			isLive2 = false;
-
-	//			if (!isLive1)
-	//				hasLost = true;
-	//			break;
-	//		}
-	//		else
-	//		{
-	//			DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer2.body, { 0,0 }, 0, explorer2.color);
-	//		}
-
-	//	}
-	//}
-
 }

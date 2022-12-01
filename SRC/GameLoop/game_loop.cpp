@@ -11,6 +11,8 @@
 
 namespace OkamiIndustries
 {
+	void InitBackground();
+	void UpdateBackground();
 
 	extern CoreScreens SetScene;
 
@@ -28,12 +30,9 @@ namespace OkamiIndustries
 	Texture2D obstacleSprite;
 	Texture2D ufoSprite;
 
-
 	Vector2 BackgroundPos = { 0,0 };
 
 	int score = 0;
-	extern bool isLive1;
-	extern bool isLive2;
 
 	bool isPlaying = false;
 	bool hasLost = false;
@@ -59,7 +58,7 @@ namespace OkamiIndustries
 
 		if (isPlaying)
 		{
-			updateBackground();
+			UpdateBackground();
 			MoveObstacles();
 			MoveUFO();
 			if (explorer1.isAlive)
@@ -100,6 +99,57 @@ namespace OkamiIndustries
 		}
 	}
 
+	void InitBackground()
+	{
+		int counter = 1;
+		for (int i = 0; i < 4; i++)
+		{
+			backgroundImages[i].body = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+			backgroundImages[i].speed = 200 * counter;
+			counter++;
+		}
+		counter = 1;
+		for (int i = 4; i < 8; i++)
+		{
+			backgroundImages[i].body = { static_cast<float>(GetScreenWidth()),0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
+			backgroundImages[i].speed = 200 * counter;
+			counter++;
+		}
+	}
+
+	void UpdateBackground()
+	{
+
+		for (int i = 0; i < 8; i++)
+		{
+			backgroundImages[i].body.x -= backgroundImages[i].speed * GetFrameTime();
+		}
+
+		for (int i = 0; i < 8; i++)
+		{
+			if (backgroundImages[i].body.x + backgroundImages[i].body.width <= 0)
+			{
+				if (i < 4)
+					backgroundImages[i].body.x = backgroundImages[i + 4].body.x + backgroundImages[i + 4].body.width;
+				else
+					backgroundImages[i].body.x = backgroundImages[i - 4].body.x + backgroundImages[i - 4].body.width;
+			}
+		}
+	}
+
+	void InitGame()
+	{
+		playerSprite = LoadTexture("assets/player.png");
+		obstacleSprite = LoadTexture("assets/obstacle.png");
+		ufoSprite = LoadTexture("assets/ufo.png");
+
+		BackgroundGame = LoadTexture("assets/Background.png");
+		Parallax1Mountains = LoadTexture("assets/parallax 1.png");
+		Parallax2Clouds = LoadTexture("assets/parallax 2.png");
+		Parallax3Clouds = LoadTexture("assets/parallax 3.png");
+		FloorGame = LoadTexture("assets/Floor.png");
+	}
+
 	void DrawGame()
 	{
 		DrawTextureEx(BackgroundGame, BackgroundPos, 0, 1, WHITE);
@@ -130,7 +180,7 @@ namespace OkamiIndustries
 		DrawObstacles();
 		DrawUFO();
 
-		if (!isLive1 && !isLive2 && hasLost)
+		if (!explorer1.isAlive && !explorer2.isAlive && hasLost)
 		{
 
 			DrawText(TextFormat("Score: %05i", score * 100), GetScreenWidth() / 4, GetScreenHeight() / 2, 150, RED);
@@ -138,19 +188,6 @@ namespace OkamiIndustries
 			DrawText("SPACE to play again", GetScreenWidth() / 3, GetScreenHeight() / 2 + 350, 50, WHITE);
 		}
 
-	}
-
-	void InitGame()
-	{
-		playerSprite = LoadTexture("assets/player.png");
-		obstacleSprite = LoadTexture("assets/obstacle.png");
-		ufoSprite = LoadTexture("assets/ufo.png");
-
-		BackgroundGame = LoadTexture("assets/Background.png");
-		Parallax1Mountains = LoadTexture("assets/parallax 1.png");
-		Parallax2Clouds = LoadTexture("assets/parallax 2.png");
-		Parallax3Clouds = LoadTexture("assets/parallax 3.png");
-		FloorGame = LoadTexture("assets/Floor.png");
 	}
 
 	void UnloadGame()
@@ -163,43 +200,5 @@ namespace OkamiIndustries
 		UnloadTexture(Parallax2Clouds);
 		UnloadTexture(Parallax3Clouds);
 		UnloadTexture(FloorGame);
-	}
-
-	void InitBackground()
-	{
-		int counter = 1;
-		for (int i = 0; i < 4; i++)
-		{
-			backgroundImages[i].body = { 0,0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
-			backgroundImages[i].speed = 200 * counter;
-			counter++;
-		}
-		counter = 1;
-		for (int i = 4; i < 8; i++)
-		{
-			backgroundImages[i].body = { static_cast<float>(GetScreenWidth()),0, static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()) };
-			backgroundImages[i].speed = 200 * counter;
-			counter++;
-		}
-	}
-
-	static void updateBackground()
-	{
-
-		for (int i = 0; i < 8; i++)
-		{
-			backgroundImages[i].body.x -= backgroundImages[i].speed * GetFrameTime();
-		}
-
-		for (int i = 0; i < 8; i++)
-		{
-			if (backgroundImages[i].body.x + backgroundImages[i].body.width <= 0)
-			{
-				if (i < 4)
-					backgroundImages[i].body.x = backgroundImages[i + 4].body.x + backgroundImages[i + 4].body.width;
-				else
-					backgroundImages[i].body.x = backgroundImages[i - 4].body.x + backgroundImages[i - 4].body.width;
-			}
-		}
 	}
 }
