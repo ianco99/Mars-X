@@ -20,5 +20,4 @@ namespace OkamiIndustries
 	void InitExplorer(Explorer& explorer, int id);
 	void MoveExplorer(Explorer& explorer); 
 	void DrawExplorer(Explorer& explorer); 
-	//void DrawExplorer2();
 }

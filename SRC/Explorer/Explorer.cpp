@@ -4,11 +4,12 @@
 
 namespace OkamiIndustries
 {
+	void DetectInput(Explorer& explorer);
+
 	extern const int maxObstacles = 3;
 
 	extern Rectangle Obstacles[maxObstacles];
 	extern Texture2D playerSprite;
-
 
 	extern bool singlePlayer;
 	extern bool hasLost;
@@ -55,6 +56,11 @@ namespace OkamiIndustries
 			explorer.body.y = static_cast <float>((GetScreenHeight() / 4) * 3);
 		}
 
+		DetectInput(explorer);
+	}
+
+	void DetectInput(Explorer& explorer)
+	{
 		if (explorer.id == 0)
 		{
 			if (IsKeyPressed(KEY_W))
