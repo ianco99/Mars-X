@@ -9,8 +9,8 @@
 
 namespace OkamiIndustries
 {
-	extern Explorer explorer1;
-	extern Explorer explorer2;
+	//extern Explorer explorer1;
+	//extern Explorer explorer2;
 
 	const int maxAmmo = 100;
 
@@ -18,26 +18,24 @@ namespace OkamiIndustries
 	Vector2 trayectory[maxAmmo];
 	Vector2 trayectory2[maxAmmo];
 
-	Circle bullet[maxAmmo];
-	Circle bullet2[maxAmmo];
+	//Circle bullet[maxAmmo];
+	//Circle bullet2[maxAmmo];
 	
 	int currentBullet = 0;
 	int currentBullet2 = 0;
 	bool isBulletTravelling[maxAmmo];
 	bool isBulletTravelling2[maxAmmo];
-
-	
 	float bulletAceleration = 1000.0f;
 	float timer = 0;
 	float timer2 = 0;
 
-	void InitBullets()
+	void InitBullets(Explorer& explorer)
 	{
 		currentBullet = 0;
 
 		for (int i = 0; i < maxAmmo; i++)
 		{
-			bullet[i] = { bulletErasedPos, 4 };
+			explorer.bullet[i] = { bulletErasedPos, 4 };
 			isBulletTravelling[i] = false;
 			trayectory[i] = { 0,0 };
 		}

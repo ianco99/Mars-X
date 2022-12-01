@@ -41,13 +41,14 @@ namespace OkamiIndustries
 	{
 		if (!isPlaying && !hasLost)	
 		{
-			isPlaying = true;
 			InitExplorer(explorer1, 0);
 			InitObstacles();
 			InitBullets();
 			InitUFO();
 			InitBackground();
+
 			score = 0;
+			isPlaying = true;
 
 			if (!singlePlayer)
 			{
@@ -61,6 +62,7 @@ namespace OkamiIndustries
 			UpdateBackground();
 			MoveObstacles();
 			MoveUFO();
+			
 			if (explorer1.isAlive)
 			{
 				MoveExplorer(explorer1);

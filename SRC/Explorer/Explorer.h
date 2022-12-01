@@ -5,6 +5,7 @@ namespace OkamiIndustries
 {
 	struct Explorer
 	{
+		Circle bullet[100];
 		Rectangle body;
 		Vector2 bodyOrigin;
 
