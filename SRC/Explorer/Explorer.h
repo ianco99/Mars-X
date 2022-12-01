@@ -12,10 +12,10 @@ namespace OkamiIndustries
 
 		float rotation;
 		float acceleration;
+		float currentGravity;
 	};
 
-	void InitExplorer1();
-	void InitExplorer2();
+	void InitExplorer(Explorer& explorer, int id);
 	void MoveExplorer(); 
 	void MoveExplorer2(); 
 	void DrawExplorer(); 

@@ -20,14 +20,16 @@ namespace OkamiIndustries
 	extern Texture2D Parallax3Clouds;
 	extern Texture2D FloorGame;
 
+	Explorer explorer1;
+	Explorer explorer2;
+	BackgroundImage backgroundImages[8];
+
 	Texture2D playerSprite;
 	Texture2D obstacleSprite;
 	Texture2D ufoSprite;
 
-	BackgroundImage backgroundImages[8];
 
 	Vector2 BackgroundPos = { 0,0 };
-
 
 	int score = 0;
 	extern bool isLive1;
@@ -42,7 +44,7 @@ namespace OkamiIndustries
 		{
 			isPlaying = true;
 			isLive1 = true;
-			InitExplorer1();
+			InitExplorer(explorer1, 0);
 			InitObstacles();
 			InitBullets();
 			InitUFO();
@@ -52,7 +54,7 @@ namespace OkamiIndustries
 			if (!singlePlayer)
 			{
 				isLive2 = true;
-				InitExplorer2();
+				InitExplorer(explorer2, 1);
 				InitBullets2();
 			}
 		}

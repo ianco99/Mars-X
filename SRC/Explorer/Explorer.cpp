@@ -6,16 +6,13 @@ namespace OkamiIndustries
 {
 	extern Rectangle Obstacles[maxObstacles];
 	extern Texture2D playerSprite;
-	
+
 	extern const int maxObstacles = 3;
-	
+
 	extern bool singlePlayer;
 	extern bool hasLost;
 
 	const int explorerOffset = 75;
-
-	Explorer explorer1;
-	Explorer explorer2;
 
 	Vector2 explorerOrigin = { explorer1.body.width / 2, explorer1.body.height / 2 };
 
@@ -25,30 +22,21 @@ namespace OkamiIndustries
 	bool isLive1 = false;
 	bool isLive2 = false;
 
-	void InitExplorer1()
+	void InitExplorer(Explorer& explorer, int id)
 	{
-		explorer1.color = RAYWHITE;
+		explorer.color = RAYWHITE;
 
-		explorer1.body.width = 50;
-		explorer1.body.height = 100;
+		explorer.body.width = 50;
+		explorer.body.height = 100;
 
-		gravity1 = 0;
+		explorer.currentGravity = 0;
 
-		explorer1.body.x = static_cast <float>(GetScreenWidth() / 4);
-		explorer1.body.y = static_cast <float>((GetScreenHeight() / 8) * 7);
-	}
+		if (id == 0)
+			explorer.body.x = static_cast <float>(GetScreenWidth() / 4);
+		else
+			explorer.body.x = static_cast <float>(GetScreenWidth() / 4 + explorerOffset * id);
 
-	void InitExplorer2()
-	{
-		explorer2.color = LIGHTGRAY;
-
-		explorer2.body.width = 50;
-		explorer2.body.height = 100;
-
-		gravity2 = 0;
-
-		explorer2.body.x = static_cast <float>(GetScreenWidth() / 4) + explorerOffset;
-		explorer2.body.y = static_cast <float>((GetScreenHeight() / 8) * 7);
+		explorer.body.y = static_cast <float>((GetScreenHeight() / 8) * 7);
 	}
 
 	void MoveExplorer()
@@ -128,7 +116,7 @@ namespace OkamiIndustries
 			{
 				DrawTexturePro(playerSprite, { 0,0, static_cast<float>(playerSprite.width), static_cast<float>(playerSprite.height) }, explorer2.body, { 0,0 }, 0, explorer2.color);
 				isLive2 = false;
-				
+
 				if (!isLive1)
 					hasLost = true;
 				break;
