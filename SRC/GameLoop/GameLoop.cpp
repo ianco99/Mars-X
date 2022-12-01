@@ -151,6 +151,18 @@ namespace OkamiIndustries
 		FloorGame = LoadTexture("assets/Floor.png");
 	}
 
+	void UnloadGame()
+	{
+		UnloadTexture(playerSprite);
+		UnloadTexture(obstacleSprite);
+		UnloadTexture(ufoSprite);
+		UnloadTexture(BackgroundGame);
+		UnloadTexture(Parallax1Mountains);
+		UnloadTexture(Parallax2Clouds);
+		UnloadTexture(Parallax3Clouds);
+		UnloadTexture(FloorGame);
+	}
+
 	void InitBackground()
 	{
 		int counter = 1;

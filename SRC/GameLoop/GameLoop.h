@@ -15,5 +15,5 @@ namespace OkamiIndustries
 	void InitGame();
 	void InitBackground();
 	static void updateBackground();
-
+	void UnloadGame();
 }
