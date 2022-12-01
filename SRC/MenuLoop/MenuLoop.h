@@ -14,6 +14,6 @@ namespace OkamiIndustries
 	void MenuLoop();
 	void DrawMenu();
 	void InitMenu();
-
+	void UnloadMenu();
 	void DrawTitle(const char* text);
 }

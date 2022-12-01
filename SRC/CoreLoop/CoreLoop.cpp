@@ -1,12 +1,8 @@
-#include "CoreLoop.h"
 #include "raylib.h"
-#include "Explorer/Explorer.h"
-#include "Obstacles/Obstacles.h"
+#include "CoreLoop.h"
 #include "MenuLoop/MenuLoop.h"
 #include "CreditsLoop/CreditsLoop.h"
 #include "GameLoop/GameLoop.h"
-#include "Martians/UFO.h"
-#include "Explorer/Bullets/Bullets.h"
 
 
 namespace OkamiIndustries
@@ -115,7 +111,7 @@ namespace OkamiIndustries
 		};
 
 		UnloadGame();
-
+		UnloadMenu();
 		CloseWindow();
 	}
 

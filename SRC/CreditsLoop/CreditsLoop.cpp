@@ -5,18 +5,19 @@
 
 namespace OkamiIndustries
 {
-	float creditsButtonRotation = 0;
-	const int maxButtons = 3;
-	extern int SelectScene;
 	extern CoreScreens SetScene;
-	extern bool stillRunning;
-
-	bool hoverBackButton;
-
-	button creditsButton[maxButtons];
-	Vector2 creditsOriginButton[maxButtons];
 	extern Rectangle Mouse;
 	extern Texture2D buttonSprite;
+
+	extern int SelectScene;
+	extern bool stillRunning;
+	
+	button creditsButton[maxButtons];
+	Vector2 creditsOriginButton[maxButtons];
+	
+	const int maxButtons = 3;
+	float creditsButtonRotation = 0;
+	bool hoverBackButton;
 
 	void InitCredits()
 	{

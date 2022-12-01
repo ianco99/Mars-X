@@ -4,16 +4,21 @@
 
 namespace OkamiIndustries
 {
-	const int maxButtons = 4;
-	float ButtonRotation = 0;
-	extern int SelectScene;
 	extern CoreScreens SetScene;
-	extern bool stillRunning;
-	button Button[maxButtons];
-	Vector2 originButton[maxButtons];
+
 	extern Rectangle Mouse;
 	extern Texture2D buttonSprite;
 	extern Texture2D menuBackgroundSprite;
+
+	extern int SelectScene;
+	extern bool stillRunning;
+
+	button Button[maxButtons];
+	Vector2 originButton[maxButtons];
+
+	const int maxButtons = 4;
+	float ButtonRotation = 0;
+
 
 	void InitMenu()
 	{
@@ -84,5 +89,11 @@ namespace OkamiIndustries
 			static_cast<int>(GetScreenHeight()) / 7,
 			48,
 			RAYWHITE);
+	}
+
+	void UnloadMenu()
+	{
+		UnloadTexture(buttonSprite);
+		UnloadTexture(menuBackgroundSprite);
 	}
 }
